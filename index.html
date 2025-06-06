@@ -2,67 +2,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rodar Bogotá</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .card {
-      background: white;
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 90%;
-    }
-    img {
-      max-width: 150px;
-    }
-    h1 {
-      font-size: 1.5em;
-      margin: 10px 0;
-    }
-    a.button {
-      display: block;
-      background: #28a745;
-      color: white;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .info {
-      margin: 10px 0;
-    }
-    .info p {
-      margin: 6px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodar Bogotá</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            padding: 1rem;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .promo {
+            background: #ffdf00;
+            padding: 10px;
+            margin: 20px auto;
+            font-size: 1.2em;
+            font-weight: bold;
+            max-width: 400px;
+        }
+        footer {
+            margin-top: 20px;
+        }
+        .qr {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <img src="logo.png" alt="Rodar Bogotá Logo">
-    <h1>Bicicletería y Montallanta Rodar Bogotá</h1>
-
-    <div class="info">
-      <p><strong>📍 Dirección:</strong> KR 125 #131A-12 Local 2, Suba Gaitana, Bogotá</p>
-      <p><strong>📞 WhatsApp:</strong> <a href="https://wa.me/573027466009">3027466009</a></p>
-      <p><strong>📘 Facebook:</strong> <a href="https://www.facebook.com/rodarbogota?mibextid=ZbWKwL">Rodar Bogotá</a></p>
-      <p><strong>📌 Cómo llegar:</strong> <a href="https://www.google.com/maps/search/?api=1&query=KR+125+131A+12+Bogotá">Ver en Google Maps</a></p>
+    <header>
+        <h1>Rodar Bogotá</h1>
+        <p>Taller especializado en bicicletas</p>
+    </header>
+    <div class="promo">
+        ¡Promoción de inauguración! <br>Mantenimiento desde $39.999
     </div>
-
-    <a class="button" href="https://wa.me/573027466009">Agendar por WhatsApp</a>
-  </div>
+    <img src="Taller_1.jpg" alt="Foto del Taller">
+    <footer>
+        <p>¿Tienes dudas o quieres agendar? <br><strong>Escríbenos por acá</strong> ⬇️</p>
+        <div class="qr">
+            <img src="qr_contacto.png" alt="QR para contacto">
+        </div>
+    </footer>
 </body>
 </html>
