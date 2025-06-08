@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,13 +51,24 @@
       font-weight: bold;
     }
 
-    iframe {
-      margin-top: 30px;
-      width: 90%;
-      max-width: 600px;
-      height: 350px;
-      border: none;
-      border-radius: 10px;
+    .facebook-link {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #4267B2;
+      font-weight: bold;
+    }
+
+    .facebook-link a {
+      text-decoration: none;
+      color: #4267B2;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 25px;
+      font-size: 18px;
+      color: #0056b3;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -73,12 +85,13 @@
       🚴‍♂️ ¡Mantenimientos desde $39.999 solo por inauguración!
     </div>
 
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6485370796597!2d-74.10227342583985!3d4.730642741933184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8597603f2d4f%3A0x27d1f2aebce157fa!2sKR%20125%20%23131a-12%2C%20Suba%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1717780200000!5m2!1ses-419!2sco"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <div class="facebook-link">
+      📢 Visita nuestra nueva página en <a href="https://www.facebook.com/profile.php?id=61560402434807" target="_blank">Facebook</a>
+    </div>
+
+    <a class="map-link" href="https://maps.app.goo.gl/AS5DQspmboNLybWU8" target="_blank">
+      📍 Ver ubicación del local en Google Maps
+    </a>
   </div>
 </body>
 </html>
