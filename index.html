@@ -3,95 +3,66 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bicicletería y Montallanta Rodar Bogotá</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rodar Bogotá</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background: #f4f4f4;
       margin: 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
     }
-
-    .container {
+    .card {
+      background: white;
+      margin-top: 20px;
       padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 90%;
     }
-
-    img.logo {
-      max-width: 200px;
-      margin-top: 20px;
+    img {
+      max-width: 150px;
     }
-
     h1 {
-      color: #333;
-      margin-top: 10px;
+      font-size: 1.5em;
+      margin: 10px 0;
     }
-
-    .btn-contact {
-      display: inline-block;
-      background-color: #28a745;
+    a.button {
+      display: block;
+      background: #28a745;
       color: white;
-      padding: 12px 20px;
-      font-size: 18px;
-      margin-top: 20px;
+      padding: 10px;
+      margin: 10px 0;
       border-radius: 8px;
       text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .btn-contact:hover {
-      background-color: #218838;
-    }
-
-    .promo {
-      margin-top: 20px;
-      font-size: 20px;
-      color: #d60000;
       font-weight: bold;
     }
-
-    .facebook-link {
-      margin-top: 15px;
-      font-size: 18px;
-      color: #4267B2;
-      font-weight: bold;
+    .info {
+      margin: 10px 0;
     }
-
-    .facebook-link a {
-      text-decoration: none;
-      color: #4267B2;
-    }
-
-    .map-link {
-      display: inline-block;
-      margin-top: 25px;
-      font-size: 18px;
-      color: #0056b3;
-      text-decoration: underline;
+    .info p {
+      margin: 6px 0;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="logo.png" alt="Logo Rodar Bogotá" class="logo" />
+  <div class="card">
+    <img src="logo.png" alt="Rodar Bogotá Logo">
     <h1>Bicicletería y Montallanta Rodar Bogotá</h1>
 
-    <a class="btn-contact" href="https://wa.me/573027466009" target="_blank">
-      📱 Escríbenos por acá
-    </a>
-
-    <div class="promo">
-      🚴‍♂️ ¡Mantenimientos desde $39.999 solo por inauguración!
+    <div class="info">
+      <p><strong>📍 Dirección:</strong> KR 125 #131A-12 Local 2, Suba Gaitana, Bogotá</p>
+      <p><strong>📞 WhatsApp:</strong> <a href="https://wa.me/573027466009">3027466009</a></p>
+      <p><strong>📘 Facebook:</strong> <a href="https://www.facebook.com/rodarbogota?mibextid=ZbWKwL">Rodar Bogotá</a></p>
+      <p><strong>📌 Cómo llegar:</strong> <a href="https://www.google.com/maps/search/?api=1&query=KR+125+131A+12+Bogotá">Ver en Google Maps</a></p>
     </div>
 
-    <div class="facebook-link">
-      📢 Visita nuestra nueva página en <a href="https://www.facebook.com/profile.php?id=61560402434807" target="_blank">Facebook</a>
-    </div>
-
-    <a class="map-link" href="https://maps.app.goo.gl/AS5DQspmboNLybWU8" target="_blank">
-      📍 Ver ubicación del local en Google Maps
-    </a>
+    <a class="button" href="https://wa.me/573027466009">Agendar por WhatsApp</a>
   </div>
 </body>
 </html>
