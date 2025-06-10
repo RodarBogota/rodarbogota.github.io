@@ -114,21 +114,33 @@
 .extras li {
   margin-bottom: 5px; /* Espacio entre cada elemento de lista */
 }
-.share-btn {
-  display: block;
+.share-section {
   background: rgba(255, 209, 0, 0.3); /* Amarillo Caterpillar */
-  color: black;
-  padding: 8px;
-  margin: 10px 0;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
   text-align: center;
-  transition: background 0.3s ease-in-out;
 }
 
-.share-btn:hover {
-  background: rgba(255, 209, 0, 0.6);
+.share-section h2 {
+  font-size: 18px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.share-btn {
+  display: inline-block;
+  margin: 5px;
+}
+
+.share-btn img {
+  width: 40px; /* Tamaño del ícono */
+  height: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.share-btn img:hover {
+  transform: scale(1.2); /* Efecto de agrandamiento */
 }
 
 .review-btn {
@@ -177,25 +189,31 @@
 
     <a class="button" href="https://wa.me/573027466009">Agendar por WhatsApp</a>
     
-    <!-- Botón de compartir en WhatsApp -->
-<a class="share-btn" href="https://wa.me/?text=🚴‍♂️%20¡Mira%20esta%20tarjeta%20de%20Rodar%20Bogotá!%20Visítanos:%20https://tu-sitio-web.com" target="_blank">
-  <img src="whatsapp-icon.png" alt="WhatsApp">
-</a>
+    <!-- Contenedor para compartir -->
+<div class="share-section">
+  <h2>📢 Comparte esta tarjeta</h2>
+  
+  <!-- Botón de compartir en WhatsApp -->
+  <a class="share-btn" href="https://wa.me/?text=🚴‍♂️%20¡Mira%20esta%20tarjeta%20de%20Rodar%20Bogotá!%20Visítanos:%20https://tu-sitio-web.com" target="_blank">
+    <img src="whatsapp-icon.png" alt="WhatsApp">
+  </a>
 
-<!-- Botón de compartir en Facebook -->
-<a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://tu-sitio-web.com" target="_blank">
-  <img src="facebook-icon.png" alt="Facebook">
-</a>
+  <!-- Botón de compartir en Facebook -->
+  <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://tu-sitio-web.com" target="_blank">
+    <img src="facebook-icon.png" alt="Facebook">
+  </a>
 
-<!-- Botón de compartir en Instagram -->
-<a class="share-btn" onclick="copyToClipboard()">
-  <img src="instagram-icon.png" alt="Instagram">
-</a>
+  <!-- Botón de compartir en Instagram -->
+  <a class="share-btn" onclick="copyToClipboard()">
+    <img src="instagram-icon.png" alt="Instagram">
+  </a>
 
-<!-- Botón de compartir en TikTok -->
-<a class="share-btn" onclick="copyToClipboard()">
-  <img src="tiktok-icon.png" alt="TikTok">
-</a>
+  <!-- Botón de compartir en TikTok -->
+  <a class="share-btn" onclick="copyToClipboard()">
+    <img src="tiktok-icon.png" alt="TikTok">
+  </a>
+</div>
+
 
     <div class="frase"> ¡Rodar seguro es rodar tranquilo!</div>
   </div>
