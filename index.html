@@ -74,19 +74,26 @@
   background-color: rgba(255, 209, 0, 0.3); /* Amarillo Caterpillar */
 }
 
-@keyframes slideIn {
+@keyframes zoomIn {
   from { transform: translateX(-100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
 
 .promo {
   display: none;
-  animation: slideIn 1s ease-in-out;
+  animation: zoomIn 1s ease-in-out;
   font-size: 16px; /* 🔥 Cambia este valor según lo que necesites */
 }
 .promo.active {
   display: block;
 }
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
+
 
   .frase {
   font-size: 15px;
@@ -207,13 +214,15 @@ video-text {
       <p><strong>📌 Cómo llegar:</strong> <a href="https://www.google.com/maps/search/?api=1&query=KR+125+131A+12+Bogotá">Ver en Google Maps</a></p>
       <p><strong>📘 Facebook:</strong> <a href="https://www.facebook.com/rodarbogota?mibextid=ZbWKwL">Rodar Bogotá</a></p>
       <a class="review-btn" href="https://g.page/r/CUf0U1RNeTVkEAE/review" target="_blank">📝 Tu Opinión Cuenta</a>
+    
       <div class="promo-container">
-  <p class="promo active">🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.</p>
-  <p class="promo active">10% OFF en tu primer cambio de bombillería LED o halógena Para motos y carros <br> ¡visibilidad, estilo y seguridad al mejor precio!</p>
-  <p class="promo">🔧 🚲 Lavado profesional <br> bicicletas: $15.000. <br> 🏍️ Motos desde $2.000. <br> ¡Incluye lubricación de la relación! Tu bici y moto, siempre listas para rodar.</p>
-  <p class="promo">🔧 ¡Aprovecha el 20% de descuento! <br> En reparaciones electrómecánicas para motos y carros <br> Calidad y experiencia que se notan.</p>
-  <p class="promo">🚖 Beneficio exclusivo para taxistas <br> Descuentos especiales en servicios de montallantas. <br> ¡Rápido, seguro y al mejor precio!</p>
-</div>
+  <p class="promo red active">🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.</p>
+  <p class="promo blue">10% OFF en tu primer cambio de bombillería LED o halógena Para motos y carros <br> ¡visibilidad, estilo y seguridad al mejor precio!</p>
+  <p class="promo red">🔧 🚲 Lavado profesional <br> bicicletas: $15.000. <br> 🏍️ Motos desde $2.000. <br> ¡Incluye lubricación de la relación! Tu bici y moto, siempre listas para rodar.</p>
+  <p class="promo blue">🔧 ¡Aprovecha el 20% de descuento! <br> En reparaciones electrómecánicas para motos y carros <br> Calidad y experiencia que se notan.</p>
+  <p class="promo red">🚖 Beneficio exclusivo para taxistas <br> Descuentos especiales en servicios de montallantas. <br> ¡Rápido, seguro y al mejor precio!</p>
+    </div>
+
       <div class="extras">
   <h2 class="extras-title">🔧 También ofrecemos para carros y motos 🚗🏍️:</h2>
   <ul>
