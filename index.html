@@ -268,7 +268,7 @@ video-text {
     setInterval(() => {
       currentPromo = (currentPromo + 1) % promos.length;
       showPromo(currentPromo);
-    }, 0100); // Cambia cada 7 segundos
+    }, 10000); // Cambia cada 7 segundos
   }
 
   document.addEventListener("DOMContentLoaded", startPromoRotation);
