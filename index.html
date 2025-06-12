@@ -82,8 +82,8 @@
 .promo {
   display: none;
   animation: slideIn 1s ease-in-out;
+  font-size: 16px; /* 🔥 Cambia este valor según lo que necesites */
 }
-
 .promo.active {
   display: block;
 }
@@ -268,7 +268,7 @@ video-text {
     setInterval(() => {
       currentPromo = (currentPromo + 1) % promos.length;
       showPromo(currentPromo);
-    }, 7000); // Cambia cada 7 segundos
+    }, 1000); // Cambia cada 7 segundos
   }
 
   document.addEventListener("DOMContentLoaded", startPromoRotation);
