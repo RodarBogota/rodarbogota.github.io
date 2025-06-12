@@ -20,21 +20,6 @@
       background-position: center;   /* 📌 Centrar la imagen */
       background-repeat: no-repeat;
       background-attachment: fixed; /* 📌 Mantener fija al hacer scroll */
-
-      <script>
-  let currentPromo = 0;
-  const promos = document.querySelectorAll(".promo");
-
-  function showPromo(index) {
-    promos.forEach(promo => promo.classList.remove("active"));
-    promos[index].classList.add("active");
-  }
-
-  setInterval(() => {
-    currentPromo = (currentPromo + 1) % promos.length;
-    showPromo(currentPromo);
-  }, 3000); // Cambia cada 3 segundos
-</script>
     </body>
 </html>
 
@@ -266,6 +251,26 @@ video-text {
 
 
     <div class="frase"> ¡Recuerda, con nosotros rodar seguro es rodar tranquilo!</div>
-  </div>
+    
+  <script>
+  let currentPromo = 0;
+  const promos = document.querySelectorAll(".promo");
+
+  function showPromo(index) {
+    promos.forEach(promo => promo.classList.remove("active"));
+    promos[index].classList.add("active");
+  }
+
+  function startPromoRotation() {
+    showPromo(currentPromo); // Muestra la primera promoción
+    setInterval(() => {
+      currentPromo = (currentPromo + 1) % promos.length;
+      showPromo(currentPromo);
+    }, 3000); // Cambia cada 3 segundos
+  }
+
+  document.addEventListener("DOMContentLoaded", startPromoRotation);
+</script>
+  
 </body>
 </html>
