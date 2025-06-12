@@ -74,6 +74,11 @@
   background-color: rgba(255, 209, 0, 0.3); /* Amarillo Caterpillar */
 }
 
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
 .promo {
   display: none;
   animation: slideIn 1s ease-in-out;
@@ -81,11 +86,6 @@
 
 .promo.active {
   display: block;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
   .frase {
