@@ -150,14 +150,22 @@
   background: rgba(255, 209, 0, 0.6); /* Amarillo Caterpillar con más opacidad al pasar el mouse */
 }
 
+video-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin-bottom: 10px; /* Espaciado entre el texto y el video */
+}
+
 .video-container {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 315px; /* Ajuste para Shorts: más estrecho */
+  max-width: 315px; /* Ajuste para Shorts */
   aspect-ratio: 9/16; /* Proporción vertical */
-  margin-top: 15px;
-  display: flex; /* 🏆 Centra el contenido */
-  justify-content: center; /* 🏆 Asegura que el iframe quede alineado */
+  margin: 0 auto; /* 🏆 Esto lo centra completamente */
 }
 
 .video-container iframe {
