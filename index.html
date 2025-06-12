@@ -20,6 +20,21 @@
       background-position: center;   /* 📌 Centrar la imagen */
       background-repeat: no-repeat;
       background-attachment: fixed; /* 📌 Mantener fija al hacer scroll */
+
+      <script>
+  let currentPromo = 0;
+  const promos = document.querySelectorAll(".promo");
+
+  function showPromo(index) {
+    promos.forEach(promo => promo.classList.remove("active"));
+    promos[index].classList.add("active");
+  }
+
+  setInterval(() => {
+    currentPromo = (currentPromo + 1) % promos.length;
+    showPromo(currentPromo);
+  }, 3000); // Cambia cada 3 segundos
+</script>
     </body>
 </html>
 
@@ -60,14 +75,33 @@
       0% { text-shadow: 0 0 5px red; } /* Comienza con un pequeño resplandor rojo */
       50% { text-shadow: 0 0 20px yellow; } /* En la mitad del ciclo, el brillo aumenta y cambia a amarillo */
       100% { text-shadow: 0 0 5px red; } /* Termina volviendo al brillo inicial */
-    }
-    .promo {
-      color: red; /* Color inicial del texto */
-      font-weight: bold; /* Hace que el texto sea más grueso */
-      margin-top: 10px; /* Espacio entre este elemento y los anteriores */
-      font-size: 22px; /* Tamaño del texto */
-      animation: glow 3s infinite alternate; /* Aplica la animación 'glow' con duración de 1.5 segundos, repitiéndose infinitamente */
-    }
+  }
+    .promo-container {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 209, 0, 0.3); /* Amarillo Caterpillar */
+}
+
+.promo {
+  display: none;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.promo.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
   .frase {
   font-size: 15px;
   font-style: italic; /* Esto pone el texto en cursiva */
@@ -187,7 +221,11 @@ video-text {
       <p><strong>📌 Cómo llegar:</strong> <a href="https://www.google.com/maps/search/?api=1&query=KR+125+131A+12+Bogotá">Ver en Google Maps</a></p>
       <p><strong>📘 Facebook:</strong> <a href="https://www.facebook.com/rodarbogota?mibextid=ZbWKwL">Rodar Bogotá</a></p>
       <a class="review-btn" href="https://g.page/r/CUf0U1RNeTVkEAE/review" target="_blank">📝 Tu Opinión Cuenta</a>
-      <div class="promo">🚴‍♂️ ¡Mantenimiento para tu bicicleta desde $39.999, solo por inauguración!</div>
+      <div class="promo-container">
+  <p class="promo active">🚴‍♂️ ¡Mantenimiento para tu bicicleta desde $39.999, solo por inauguración!</p>
+  <p class="promo">🔧 Cambio de pastillas de freno GRATIS con tu revisión completa.</p>
+  <p class="promo">🎁 ¡Descuento del 15% en accesorios para ciclistas este mes!</p>
+</div>
       <div class="extras">
   <h2 class="extras-title">🔧 También ofrecemos para carros y motos 🚗🏍️:</h2>
   <ul>
