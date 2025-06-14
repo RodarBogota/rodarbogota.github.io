@@ -78,6 +78,10 @@
   height: 4px;
   background: linear-gradient(to right, red 0%, transparent 100%);
   animation: progressAnimation 8s linear infinite;
+  position: absolute; /* 🔥 Asegura que se coloque sobre el contenido */
+  top: 0; /* 🔥 Ajusta la posición arriba del contenedor */
+  left: 0;
+}
 }
 @keyframes progressAnimation {
   from { width: 0%; }
@@ -241,6 +245,7 @@ video-text {
       <a class="review-btn" href="https://g.page/r/CUf0U1RNeTVkEAE/review" target="_blank">📝 Tu Opinión Cuenta</a>
     
       <div class="promo-container">
+      <div class="progress-bar"></div> <!-- 🔥 Barra de progreso -->
   <p class="promo red active">🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.</p>
   <p class="promo blue">10% OFF en tu primer cambio de bombillería LED o halógena Para motos y carros <br> ¡visibilidad, estilo y seguridad al mejor precio!</p>
   <p class="promo red">🔧 🚲 Lavado profesional <br> bicicletas: $15.000. <br> 🏍️ Motos desde $20.000. <br> ¡Incluye lubricación de la relación! Tu bici y moto, siempre listas para rodar.</p>
@@ -281,12 +286,11 @@ video-text {
 </a>
 
   <!-- Botón de compartir en Facebook -->
-  <a class="share-btn" href="https://wa.me/?text=https://rodarbogota.github.io/" target="_blank">
+  <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://rodarbogota.github.io/" target="_blank">
   <img src="facebook-icon.png" alt="Facebook">
 </a>
 
 </div>
-
 
     <div class="frase"> ¡Recuerda, con nosotros rodar seguro es rodar tranquilo!</div>
     
@@ -306,8 +310,24 @@ video-text {
       showPromo(currentPromo);
     }, 11000); // Cambia cada 14 segundos
   }
+function resetProgressBar() {
+  const progressBar = document.querySelector(".progress-bar");
+  progressBar.style.animation = "none"; // 🔥 Detiene la animación
+  void progressBar.offsetWidth; // 🔥 Fuerza el reinicio de la animación
+  progressBar.style.animation = "progressAnimation 8s linear infinite"; // 🔥 Reactiva la animación
+}
 
-  document.addEventListener("DOMContentLoaded", startPromoRotation);
+function startPromoRotation() {
+  showPromo(currentPromo);
+  resetProgressBar(); // 🔥 Reinicia la barra de progreso
+  setInterval(() => {
+    currentPromo = (currentPromo + 1) % promos.length;
+    showPromo(currentPromo);
+    resetProgressBar(); // 🔥 Reinicia la barra cada vez que cambia la promo
+  }, 8000); // Tiempo igual al de la animación
+}
+
+    document.addEventListener("DOMContentLoaded", startPromoRotation);
 </script>
 
 <footer>
