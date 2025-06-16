@@ -228,45 +228,6 @@ video-text {
   border-radius: 10px;
 }
 
-.calculadora-btn {
-  display: block;
-  background: #ffc107; /* 🔥 Color amarillo para diferenciarlo de WhatsApp */
-  color: black;
-  padding: 10px;
-  margin-top: 10px; /* 🔥 Espacio para que no se junte con WhatsApp */
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  position: fixed;
-  bottom: 15px; /* 🔥 Debajo del botón de WhatsApp */
-  right: 15px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.modal {
-  display: none; /* 🔥 Ocultar el modal hasta que el usuario haga clic */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-
       </style>
 </head>
 <body>
@@ -281,16 +242,29 @@ video-text {
       <p><strong>📘 Facebook:</strong> <a href="https://www.facebook.com/rodarbogota?mibextid=ZbWKwL">Rodar Bogotá</a></p>
       <a class="review-btn" href="https://g.page/r/CUf0U1RNeTVkEAE/review" target="_blank">📝 Tu Opinión Cuenta</a>
     
-    <div class="promo-container">
-  <div class="progress-bar"></div> <!-- 🔥 La barra está arriba, fuera de las promos -->
-  <p class="promo red active">🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.</p>
-  <p class="promo blue">10% OFF en tu primer cambio de bombillería LED o halógena Para motos y carros <br> ¡Visibilidad, estilo y seguridad al mejor precio!</p>
-  <p class="promo red">🔧 🚲 Lavado profesional <br> bicicletas: $15.000. <br> 🏍️ Motos desde $20.000. <br> ¡Incluye lubricación de la relación! Tu bici y moto, siempre listas para rodar.</p>
-  <p class="promo blue">¡Aprovecha el 20% de descuento! <br> En reparaciones electrómecánicas para motos y carros <br> Calidad y experiencia que se notan.</p>
-  <p class="promo red">🔧  🚖 Beneficio exclusivo para taxistas <br> Descuentos especiales en servicios de montallantas. <br> ¡Rápido, seguro y al mejor precio!</p>
+      <div class="promo-container">
+  <p class="promo red active">
+    🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.
+    <div class="progress-bar"></div> <!-- 🔥 Barra dentro de cada promo -->
+  </p>
+  <p class="promo blue">
+    10% OFF en tu primer cambio de bombillería LED o halógena. <br> ¡Visibilidad, estilo y seguridad al mejor precio!
+    <div class="progress-bar"></div>
+  </p>
+  <p class="promo red">
+    🔧 🚲 Lavado profesional. <br> Bicicletas: $15.000. 🏍️ Motos desde $20.000.
+    <div class="progress-bar"></div>
+  </p>
+    <p class="promo blue">
+    ¡Aprovecha el 20% de descuento! <br> En reparaciones electrómecánicas para motos y carros <br> Calidad y experiencia que se notan.
+    <div class="progress-bar"></div>
+  </p>
+  <p class="promo red">
+    🚖 Beneficio exclusivo para taxistas <br> Descuentos especiales en servicios de montallantas. <br> ¡Rápido, seguro y al mejor precio!
+    <div class="progress-bar"></div>
+  </p>
 </div>
 
-        
       <div class="extras">
   <h2 class="extras-title">🔧 También ofrecemos para carros y motos 🚗🏍️:</h2>
   <ul>
@@ -305,9 +279,6 @@ video-text {
     </div>
 
     <a class="button" href="https://wa.me/573027466009">Agendar por WhatsApp</a>
-
-    <!-- 🔥 Botón del calculador de servicios -->
-<a class="calculadora-btn" href="#" onclick="openCalculator()">📊 Calcula tu servicio</a>
 
         <!-- Texto del video fuera del contenedor -->
 <p class="video-text">📹 Descubre cómo Rodar Bogotá te ayuda a mantener tu bicicleta en perfecto estado.</p>
@@ -345,19 +316,21 @@ video-text {
   }
 
   function resetProgressBar() {
-  const progressBar = document.querySelector(".progress-bar");
-  progressBar.style.animation = "none"; // 🔥 Detiene la animación actual
-  void progressBar.offsetWidth; // 🔥 Reinicia la animación
-  progressBar.style.animation = "progressAnimation 8s linear forwards"; // 🔥 Reactiva la animación con cada cambio
+  const progressBars = document.querySelectorAll(".progress-bar");
+  progressBars.forEach(bar => {
+    bar.style.animation = "none";
+    void bar.offsetWidth; // 🔥 Truco para reiniciar la animación
+    bar.style.animation = "progressAnimation 8s linear forwards"; // 🔥 Se reinicia al cambiar de promo
+  });
 }
 
 function startPromoRotation() {
   showPromo(currentPromo);
-  resetProgressBar(); // 🔥 Sincroniza la barra con el cambio de promo
+  resetProgressBar(); // 🔥 Sincroniza la barra
   setInterval(() => {
     currentPromo = (currentPromo + 1) % promos.length;
     showPromo(currentPromo);
-    resetProgressBar(); // 🔥 Reinicia la barra con cada nueva promo
+    resetProgressBar(); // 🔥 Reinicia la barra con cada cambio
   }, 8000); // Tiempo de animación
 }
 
@@ -367,68 +340,6 @@ function startPromoRotation() {
 <footer>
   <p>Copyright © 2025 Rodar Bogotá. Todos los derechos reservados.</p>
 </footer>
-
-<!-- 🔥 Calculador de Servicios -->
-<div id="calculatorModal" class="modal">
-  <div class="modal-content">
-    <h2>📊 Calcula tu servicio</h2>
-    
-    <label for="vehicle">🔘 Tipo de vehículo:</label>
-    <select id="vehicle">
-      <option value="bicicleta">🚲 Bicicleta</option>
-      <option value="moto">🏍️ Moto</option>
-      <option value="carro">🚗 Carro</option>
-    </select>
-
-    <label for="service">🔧 Servicio:</label>
-    <select id="service">
-      <option value="mantenimiento">Mantenimiento</option>
-      <option value="llantas">Cambio de llantas</option>
-      <option value="lavado">Lavado</option>
-      <option value="electromecanica">Electromecánica</option>
-    </select>
-
-    <p><strong>📊 Precio estimado:</strong> <span id="price">---</span></p>
-    <p><strong>⏳ Tiempo estimado:</strong> <span id="time">---</span></p>
-
-    <button onclick="calculateService()">Calcular</button>
-    <button onclick="closeCalculator()">Cerrar</button>
-  </div>
-</div>
-
-<!-- 🔥 Código JavaScript para manejar el modal -->
-<script>
-function openCalculator() {
-  document.getElementById("calculatorModal").style.display = "flex";
-}
-
-function closeCalculator() {
-  document.getElementById("calculatorModal").style.display = "none";
-}
-
-function calculateService() {
-  const vehicle = document.getElementById("vehicle").value;
-  const service = document.getElementById("service").value;
-
-  let price = "No disponible";
-  let time = "No estimado";
-
-  if (vehicle === "bicicleta" && service === "mantenimiento") {
-    price = "$40.000 - $60.000";
-    time = "40 min - 1 hora";
-  } else if (vehicle === "moto" && service === "llantas") {
-    price = "$80.000 - $120.000";
-    time = "1 - 2 horas";
-  } else if (vehicle === "carro" && service === "lavado") {
-    price = "$20.000 - $50.000";
-    time = "30 - 45 min";
-  }
-
-  document.getElementById("price").innerText = price;
-  document.getElementById("time").innerText = time;
-}
-</script>
-
 
 </body>
 </html>
