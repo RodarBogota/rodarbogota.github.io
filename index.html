@@ -74,15 +74,13 @@
   }
       
   .progress-bar {
-  width: 100%;
+  width: 0%;
   height: 4px;
   background: linear-gradient(to right, red 0%, transparent 100%);
-  animation: progressAnimation 8s linear infinite;
-  position: absolute; /* 🔥 Asegura que se coloque sobre el contenido */
-  top: 0; /* 🔥 Ajusta la posición arriba del contenedor */
-  left: 0;
+  position: relative;
+  margin-top: 5px;
 }
-}
+
 @keyframes progressAnimation {
   from { width: 0%; }
   to { width: 100%; }
@@ -245,13 +243,27 @@ video-text {
       <a class="review-btn" href="https://g.page/r/CUf0U1RNeTVkEAE/review" target="_blank">📝 Tu Opinión Cuenta</a>
     
       <div class="promo-container">
-      <div class="progress-bar"></div> <!-- 🔥 Barra de progreso -->
-  <p class="promo red active">🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.</p>
-  <p class="promo blue">10% OFF en tu primer cambio de bombillería LED o halógena Para motos y carros <br> ¡visibilidad, estilo y seguridad al mejor precio!</p>
-  <p class="promo red">🔧 🚲 Lavado profesional <br> bicicletas: $15.000. <br> 🏍️ Motos desde $20.000. <br> ¡Incluye lubricación de la relación! Tu bici y moto, siempre listas para rodar.</p>
-  <p class="promo blue">🔧 ¡Aprovecha el 20% de descuento! <br> En reparaciones electrómecánicas para motos y carros <br> Calidad y experiencia que se notan.</p>
-  <p class="promo red">🚖 Beneficio exclusivo para taxistas <br> Descuentos especiales en servicios de montallantas. <br> ¡Rápido, seguro y al mejor precio!</p>
-    </div>
+  <p class="promo red active">
+    🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.
+    <div class="progress-bar"></div> <!-- 🔥 Barra dentro de cada promo -->
+  </p>
+  <p class="promo blue">
+    10% OFF en tu primer cambio de bombillería LED o halógena. <br> ¡Visibilidad, estilo y seguridad al mejor precio!
+    <div class="progress-bar"></div>
+  </p>
+  <p class="promo red">
+    🔧 🚲 Lavado profesional. <br> Bicicletas: $15.000. 🏍️ Motos desde $20.000.
+    <div class="progress-bar"></div>
+  </p>
+    <p class="promo blue">
+    ¡Aprovecha el 20% de descuento! <br> En reparaciones electrómecánicas para motos y carros <br> Calidad y experiencia que se notan.
+    <div class="progress-bar"></div>
+  </p>
+  <p class="promo red">
+    🚖 Beneficio exclusivo para taxistas <br> Descuentos especiales en servicios de montallantas. <br> ¡Rápido, seguro y al mejor precio!
+    <div class="progress-bar"></div>
+  </p>
+</div>
 
       <div class="extras">
   <h2 class="extras-title">🔧 También ofrecemos para carros y motos 🚗🏍️:</h2>
@@ -304,21 +316,23 @@ video-text {
   }
 
   function resetProgressBar() {
-    const progressBar = document.querySelector(".progress-bar");
-    progressBar.style.animation = "none"; // 🔥 Detiene la animación actual
-    void progressBar.offsetWidth; // 🔥 Truco para reiniciar la animación
-    progressBar.style.animation = "progressAnimation 8s linear infinite"; // 🔥 Reactiva la animación
-  }
+  const progressBars = document.querySelectorAll(".progress-bar");
+  progressBars.forEach(bar => {
+    bar.style.animation = "none";
+    void bar.offsetWidth; // 🔥 Truco para reiniciar la animación
+    bar.style.animation = "progressAnimation 8s linear forwards"; // 🔥 Se reinicia al cambiar de promo
+  });
+}
 
-  function startPromoRotation() {
+function startPromoRotation() {
+  showPromo(currentPromo);
+  resetProgressBar(); // 🔥 Sincroniza la barra
+  setInterval(() => {
+    currentPromo = (currentPromo + 1) % promos.length;
     showPromo(currentPromo);
-    resetProgressBar(); // 🔥 Reinicia la barra de progreso
-    setInterval(() => {
-      currentPromo = (currentPromo + 1) % promos.length;
-      showPromo(currentPromo);
-      resetProgressBar(); // 🔥 Reinicia la barra cada vez que cambia la promo
-    }, 8000); // Igual al tiempo de la animación
-  }
+    resetProgressBar(); // 🔥 Reinicia la barra con cada cambio
+  }, 8000); // Tiempo de animación
+}
 
   document.addEventListener("DOMContentLoaded", startPromoRotation);
 </script>
