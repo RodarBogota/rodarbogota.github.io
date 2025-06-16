@@ -303,31 +303,24 @@ video-text {
     promos[index].classList.add("active");
   }
 
+  function resetProgressBar() {
+    const progressBar = document.querySelector(".progress-bar");
+    progressBar.style.animation = "none"; // 🔥 Detiene la animación actual
+    void progressBar.offsetWidth; // 🔥 Truco para reiniciar la animación
+    progressBar.style.animation = "progressAnimation 8s linear infinite"; // 🔥 Reactiva la animación
+  }
+
   function startPromoRotation() {
-    showPromo(currentPromo); // Muestra la primera promoción
+    showPromo(currentPromo);
+    resetProgressBar(); // 🔥 Reinicia la barra de progreso
     setInterval(() => {
       currentPromo = (currentPromo + 1) % promos.length;
       showPromo(currentPromo);
-    }, 11000); // Cambia cada 14 segundos
+      resetProgressBar(); // 🔥 Reinicia la barra cada vez que cambia la promo
+    }, 8000); // Igual al tiempo de la animación
   }
-function resetProgressBar() {
-  const progressBar = document.querySelector(".progress-bar");
-  progressBar.style.animation = "none"; // 🔥 Detiene la animación
-  void progressBar.offsetWidth; // 🔥 Fuerza el reinicio de la animación
-  progressBar.style.animation = "progressAnimation 8s linear infinite"; // 🔥 Reactiva la animación
-}
 
-function startPromoRotation() {
-  showPromo(currentPromo);
-  resetProgressBar(); // 🔥 Reinicia la barra de progreso
-  setInterval(() => {
-    currentPromo = (currentPromo + 1) % promos.length;
-    showPromo(currentPromo);
-    resetProgressBar(); // 🔥 Reinicia la barra cada vez que cambia la promo
-  }, 8000); // Tiempo igual al de la animación
-}
-
-    document.addEventListener("DOMContentLoaded", startPromoRotation);
+  document.addEventListener("DOMContentLoaded", startPromoRotation);
 </script>
 
 <footer>
