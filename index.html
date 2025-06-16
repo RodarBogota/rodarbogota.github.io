@@ -242,29 +242,16 @@ video-text {
       <p><strong>📘 Facebook:</strong> <a href="https://www.facebook.com/rodarbogota?mibextid=ZbWKwL">Rodar Bogotá</a></p>
       <a class="review-btn" href="https://g.page/r/CUf0U1RNeTVkEAE/review" target="_blank">📝 Tu Opinión Cuenta</a>
     
-      <div class="promo-container">
-  <p class="promo red active">
-    🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.
-    <div class="progress-bar"></div> <!-- 🔥 Barra dentro de cada promo -->
-  </p>
-  <p class="promo blue">
-    10% OFF en tu primer cambio de bombillería LED o halógena. <br> ¡Visibilidad, estilo y seguridad al mejor precio!
-    <div class="progress-bar"></div>
-  </p>
-  <p class="promo red">
-    🔧 🚲 Lavado profesional. <br> Bicicletas: $15.000. 🏍️ Motos desde $20.000.
-    <div class="progress-bar"></div>
-  </p>
-    <p class="promo blue">
-    ¡Aprovecha el 20% de descuento! <br> En reparaciones electrómecánicas para motos y carros <br> Calidad y experiencia que se notan.
-    <div class="progress-bar"></div>
-  </p>
-  <p class="promo red">
-    🚖 Beneficio exclusivo para taxistas <br> Descuentos especiales en servicios de montallantas. <br> ¡Rápido, seguro y al mejor precio!
-    <div class="progress-bar"></div>
-  </p>
+    <div class="promo-container">
+  <div class="progress-bar"></div> <!-- 🔥 La barra está arriba, fuera de las promos -->
+  <p class="promo red active">🚴 Mantenimiento completo para tu bici desde $39.999. <br> ¡Deja tu bicicleta como nueva! Solo por tiempo limitado.</p>
+  <p class="promo blue">10% OFF en tu primer cambio de bombillería LED o halógena Para motos y carros <br> ¡Visibilidad, estilo y seguridad al mejor precio!</p>
+  <p class="promo red">🔧 🚲 Lavado profesional <br> bicicletas: $15.000. <br> 🏍️ Motos desde $20.000. <br> ¡Incluye lubricación de la relación! Tu bici y moto, siempre listas para rodar.</p>
+  <p class="promo blue">¡Aprovecha el 20% de descuento! <br> En reparaciones electrómecánicas para motos y carros <br> Calidad y experiencia que se notan.</p>
+  <p class="promo red">🔧  🚖 Beneficio exclusivo para taxistas <br> Descuentos especiales en servicios de montallantas. <br> ¡Rápido, seguro y al mejor precio!</p>
 </div>
 
+        
       <div class="extras">
   <h2 class="extras-title">🔧 También ofrecemos para carros y motos 🚗🏍️:</h2>
   <ul>
@@ -316,21 +303,19 @@ video-text {
   }
 
   function resetProgressBar() {
-  const progressBars = document.querySelectorAll(".progress-bar");
-  progressBars.forEach(bar => {
-    bar.style.animation = "none";
-    void bar.offsetWidth; // 🔥 Truco para reiniciar la animación
-    bar.style.animation = "progressAnimation 8s linear forwards"; // 🔥 Se reinicia al cambiar de promo
-  });
+  const progressBar = document.querySelector(".progress-bar");
+  progressBar.style.animation = "none"; // 🔥 Detiene la animación actual
+  void progressBar.offsetWidth; // 🔥 Reinicia la animación
+  progressBar.style.animation = "progressAnimation 8s linear forwards"; // 🔥 Reactiva la animación con cada cambio
 }
 
 function startPromoRotation() {
   showPromo(currentPromo);
-  resetProgressBar(); // 🔥 Sincroniza la barra
+  resetProgressBar(); // 🔥 Sincroniza la barra con el cambio de promo
   setInterval(() => {
     currentPromo = (currentPromo + 1) % promos.length;
     showPromo(currentPromo);
-    resetProgressBar(); // 🔥 Reinicia la barra con cada cambio
+    resetProgressBar(); // 🔥 Reinicia la barra con cada nueva promo
   }, 8000); // Tiempo de animación
 }
 
