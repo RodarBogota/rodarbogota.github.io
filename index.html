@@ -276,7 +276,7 @@ video-text {
 </div>
     </div>
 
-    <a class="button" href="https://wa.me/573027466009">Agendar por WhatsApp</a>
+    <a class="button" href="https://wa.me/573027466009" id="whatsappButton">Agendar por WhatsApp</a>
 
         <!-- Texto del video fuera del contenedor -->
 <p class="video-text">📹 Descubre cómo Rodar Bogotá te ayuda a mantener tu bicicleta en perfecto estado.</p>
@@ -331,6 +331,19 @@ function startPromoRotation() {
 }
 
   document.addEventListener("DOMContentLoaded", startPromoRotation);
+</script>
+
+<script>
+  const whatsappBtn = document.getElementById("whatsappButton");
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", function () {
+      gtag("event", "click_whatsapp", {
+        event_category: "Interacción",
+        event_label: "Botón WhatsApp",
+        value: 1
+      });
+    });
+  }
 </script>
 
 <footer>
