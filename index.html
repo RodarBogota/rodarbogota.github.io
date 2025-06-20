@@ -310,15 +310,28 @@
 }
 
 .reseñas-titulo {
-  text-align: center;
   font-size: 15px;
   color: #000;
-  margin: 40px auto 10px;
+  padding: 15px 20px 0;
+  text-align: center;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  flex-wrap: wrap;
+  background: transparent;
+}
+
+.reseñas-container {
+  position: relative;
+  max-width: 400px;
+  margin: 40px auto;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-google {
@@ -386,11 +399,21 @@
 </div>
 
 <!-- Este es el encabezado del carrusel de reseñas de clientes -->    
-<div class="reseñas-titulo">
-  ⭐ Somos un taller <strong>5 estrellas en</strong> 
-  <img src="google-business.svg" alt="Google Business Profile" class="logo-google"> 
-  <span>y esto dicen nuestros clientes:</span>
+<div class="reseñas-container">
+  <div class="reseñas-titulo">
+    ⭐ Somos un taller <strong>5 estrellas en</strong> 
+    <img src="google-business.svg" alt="Google Business Profile" class="logo-google"> 
+    <span>y esto dicen nuestros clientes:</span>
+  </div>
+
+  <!-- Aquí van tus botones y carrusel -->
+  <button class="flecha izquierda" onclick="moverCarrusel(-1)">❮</button>
+  <div class="reseñas-slider" id="carruselReseñas">
+    <!-- Reseñas -->
+  </div>
+  <button class="flecha derecha" onclick="moverCarrusel(1)">❯</button>
 </div>
+
 
 <!-- Carrusel de reseñas de clientes -->
 <div class="reseñas-container">
