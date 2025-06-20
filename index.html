@@ -326,6 +326,79 @@
   vertical-align: middle;
 }
 
+.equipo-titulo {
+  text-align: center;
+  font-size: 18px;
+  margin: 35px auto 20px;
+  color: #000;
+}
+
+.equipo-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.mecanico-card {
+  width: 160px;
+  height: 230px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.mecanico-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.mecanico-card.volteado .mecanico-inner {
+  transform: rotateY(180deg);
+}
+
+.mecanico-front, .mecanico-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mecanico-front img, .mecanico-back img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mecanico-front h3 {
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: #000;
+}
+
+.mecanico-back {
+  transform: rotateY(180deg);
+  padding: 10px;
+  text-align: center;
+}
+
+.mecanico-back p {
+  font-size: 13px;
+  color: #333;
+}
+
+
       </style>
 </head>
 <body>
@@ -384,6 +457,39 @@
 <div class="video-container">
   <iframe loading="lazy" width="315" height="560" src="https://www.youtube.com/embed/BjFR5NM_zC4" frameborder="0" allowfullscreen></iframe>
 </div>
+
+<h2 class="equipo-titulo">🔧 Conoce a los mecánicos que hacen posible Rodar Bogotá</h2>
+
+<div class="equipo-container">
+  <!-- Mecanico 1 -->
+  <div class="mecanico-card" onclick="voltearTarjeta(this)">
+    <div class="mecanico-inner">
+      <div class="mecanico-front">
+        <img src="fotoL.jpg" alt="Luis - Mecánico" />
+        <h3>Luis</h3>
+      </div>
+      <div class="mecanico-back">
+        <img src="fotoL-accion.jpg" alt="Luis trabajando" />
+        <p>Más de 5 años reparando bicicletas en Suba. Fundador de Rodar Bogotá y apasionado por el servicio rápido y honesto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mecanico 2 -->
+  <div class="mecanico-card" onclick="voltearTarjeta(this)">
+    <div class="mecanico-inner">
+      <div class="mecanico-front">
+        <img src="fotoM.jpg" alt="Mesy - Mecánico" />
+        <h3>Mesy</h3>
+      </div>
+      <div class="mecanico-back">
+        <img src="fotoM-accion.jpg" alt="Mesy trabajando" />
+        <p>12 años de experiencia. Especialista en electromecánica y montallantas. Su lema: “Deja el trabajo bien hecho o no lo entregues”.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Este es el encabezado del carrusel de reseñas de clientes -->    
 <div class="reseñas-titulo">
@@ -532,6 +638,13 @@ function startPromoRotation() {
 
   setInterval(() => moverCarrusel(1), 6000);
 </script>
+
+<script>
+  function voltearTarjeta(card) {
+    card.classList.toggle("volteado");
+  }
+</script>
+
 
 <footer>
   <p>Copyright © 2025 Rodar Bogotá. Todos los derechos reservados.</p>
