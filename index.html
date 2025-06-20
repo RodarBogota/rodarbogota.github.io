@@ -248,6 +248,67 @@
   height: 1px;
   overflow: hidden;
 }
+
+.reseñas-container {
+  position: relative;
+  max-width: 400px;
+  margin: 40px auto;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.reseñas-slider {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.reseña {
+  flex: 0 0 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.reseña p {
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.reseña strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.estrellas {
+  color: gold;
+  font-size: 16px;
+}
+
+/* Flechas */
+.flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.05);
+  border: none;
+  font-size: 20px;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.izquierda {
+  left: 0;
+}
+
+.derecha {
+  right: 0;
+}
+
       </style>
 </head>
 <body>
@@ -306,6 +367,71 @@
 <div class="video-container">
   <iframe loading="lazy" width="315" height="560" src="https://www.youtube.com/embed/BjFR5NM_zC4" frameborder="0" allowfullscreen></iframe>
 </div>
+
+<!-- Carrusel de reseñas de clientes -->
+<div class="reseñas-container">
+  <button class="flecha izquierda" onclick="moverCarrusel(-1)">❮</button>
+  <div class="reseñas-slider" id="carruselReseñas">
+    <div class="reseña">
+      <p>“Ecxelente servicio me desbararon con mi carrito me quedé a mitad de camino y tarde muchas gracias”</p>
+      <strong>— Jeison sneider Caicedo</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Muy buen servicio y muy cumplidos. Arreglos de electricidad y mantenimiento a mi moto, quedé satisfecho.”</p>
+      <strong>— Jairo Giraldo</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Excelente servicio, me enviaron fotos del paso a paso.”</p>
+      <strong>— Franki Benavidesc</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Exelente servicio, su atención maravillosa, se los recomiendo.”</p>
+      <strong>— Yulieth Ortega</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Muy buena la atención. Aliniaron el riñón de la moto, casi lo daba por perdido.”</p>
+      <strong>— Tager Pelaez</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Recogieron mi bici en casa y me la devolvieron como nueva. ¡Hasta me enviaron fotos!”</p>
+      <strong>— Grace Rincón</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Excelente atención. Recomendado 100%.”</p>
+      <strong>— Gabriel A. Solano</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“La atención fue muy buena. Recomendado.”</p>
+      <strong>— Felipe Parra</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Gran compromiso y responsabilidad con lo que hacen 🚲.”</p>
+      <strong>— Andrés Luque</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Quedó hermosa la cicla. ¡Excelente trabajo!”</p>
+      <strong>— Sherlyn Santander</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+    <div class="reseña">
+      <p>“Exelente cervicios, los recomiendo al 100. Sertifico su atención.”</p>
+      <strong>— Carlos Mendoza</strong>
+      <div class="estrellas">★★★★★</div>
+    </div>
+  </div>
+  <button class="flecha derecha" onclick="moverCarrusel(1)">❯</button>
+</div>
+
+    
     
         <!-- Contenedor para compartir -->
 <div class="share-section">
@@ -365,6 +491,19 @@ function startPromoRotation() {
       });
     });
   }
+</script>
+
+<script>
+  let índice = 0;
+  const carrusel = document.getElementById("carruselReseñas");
+  const total = carrusel.children.length;
+
+  function moverCarrusel(paso) {
+    índice = (índice + paso + total) % total;
+    carrusel.style.transform = `translateX(-${índice * 100}%)`;
+  }
+
+  setInterval(() => moverCarrusel(1), 6000);
 </script>
 
 <footer>
