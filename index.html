@@ -448,6 +448,28 @@
   margin-top: 10px;
 }
 
+.contenido-expandido {
+  display: none;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.contenido-expandido.mostrar {
+  display: block;
+}
+
+.leer-mas {
+  background-color: #f7c948;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
       </style>
 
 <!-- 🎯 Schema Markup de Rodar Bogotá -->
@@ -585,14 +607,26 @@
 <section class="historia-rodar">
   <div class="historia-card">
     <h2 class="historia-titulo">🔧 Cómo nació Rodar Bogotá</h2>
-    <p class="historia-texto">
-      Rodar Bogotá nació en plena pandemia, cuando las bicicletas se convirtieron en el principal medio para que muchas personas siguieran en movimiento.<br><br>
-      En ese momento, vivimos una experiencia frustrante: nos cobraron $5.000 solo por apretar una tuerca. Eso nos llevó a cuestionar la forma en que se prestaban ciertos servicios.<br><br>
-      Desde un apartamento y con una maleta de herramientas comprada por internet, comenzamos ofreciendo mantenimiento a las bicicletas de familiares, vecinos y amigos. Lo que empezó como una iniciativa familiar se transformó en un taller guiado por principios: trato justo, atención humana y compromiso con la comunidad.<br><br>
-      Actualmente, no solo somos un taller de bicicletas, también ofrecemos servicios de Electromecánica y Montallantas, brindando soluciones integrales para quienes se mueven sobre dos ruedas o cuatro. Porque creemos que reparar no es solo técnica, también es confianza.
-    </p>
-    <div class="historia-frase">💬 “¡Rodar seguro es rodar tranquilo!”</div>
+    <div class="historia-texto">
+      <p class="resumen">
+        Rodar Bogotá nació en plena pandemia, cuando las bicicletas se convirtieron en el principal medio para que muchas personas siguieran en movimiento.
+      </p>
+      <div class="contenido-expandido">
+        <p>
+          En ese momento, vivimos una experiencia frustrante: nos cobraron $5.000 solo por apretar una tuerca. Eso nos llevó a cuestionar la forma en que se prestaban ciertos servicios.
+        </p>
+        <p>
+          Desde un apartamento y con una maleta de herramientas comprada por internet, comenzamos ofreciendo mantenimiento a las bicicletas de familiares, vecinos y amigos. Lo que empezó como una iniciativa familiar se transformó en un taller guiado por principios: trato justo, atención humana y compromiso con la comunidad.
+        </p>
+        <p>
+          Actualmente, no solo somos un taller de bicicletas, también ofrecemos servicios de Electromecánica y Montallantas, brindando soluciones integrales para quienes se mueven sobre dos ruedas o cuatro. Porque creemos que reparar no es solo técnica, también es confianza.
+        </p>
+      </div>
+      <button class="leer-mas" onclick="toggleHistoria()">⬇ Leer más</button>
+    </div>
+    <div class="historia-frase">💬 “¡Rodar seguro es rodar tranquilo!.”</div>
   </div>
+</section>
 
 <h2 class="equipo-titulo">🔧 Conoce a los mecánicos que hacen posible Rodar Bogotá</h2>
 
@@ -786,6 +820,21 @@ function startPromoRotation() {
 <script>
   function voltearTarjeta(card) {
     card.classList.toggle("volteado");
+  }
+</script>
+
+<script>
+  function toggleHistoria() {
+    const texto = document.querySelector(".contenido-expandido");
+    const btn = document.querySelector(".leer-mas");
+
+    texto.classList.toggle("mostrar");
+
+    if (texto.classList.contains("mostrar")) {
+      btn.innerHTML = "⬆ Leer menos";
+    } else {
+      btn.innerHTML = "⬇ Leer más";
+    }
   }
 </script>
 
