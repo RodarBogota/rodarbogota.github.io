@@ -470,7 +470,18 @@
   font-size: 15px;
 }
 
-      </style>
+.historia-rodar {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.historia-rodar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
 
 <!-- 🎯 Schema Markup de Rodar Bogotá -->
 <script type="application/ld+json">
@@ -834,6 +845,21 @@ function startPromoRotation() {
       btn.innerHTML = "⬇ Leer más";
     }
   }
+</script>
+
+<script>
+  function revealHistoria() {
+    const historia = document.querySelector(".historia-rodar");
+    const rect = historia.getBoundingClientRect();
+    const ventana = window.innerHeight || document.documentElement.clientHeight;
+
+    if (rect.top <= ventana - 100) {
+      historia.classList.add("visible");
+      window.removeEventListener("scroll", revealHistoria);
+    }
+  }
+
+  window.addEventListener("scroll", revealHistoria);
 </script>
 
 <footer style="border-top: 1px solid #ccc; margin-top: 40px; padding: 20px 10px; text-align: center; font-size: 14px; color: #555;">
