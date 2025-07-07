@@ -348,6 +348,13 @@
   gap: 20px;
   justify-content: center;
   margin-bottom: 20px; /* 🔧 Separación entre tarjetas */
+  opacity: 0;
+  transform: translateX(-60px); /* Entrada desde la izquierda */
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+  .equipo-container.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .mecanico-card {
@@ -873,6 +880,21 @@ function startPromoRotation() {
   }
 
   window.addEventListener("scroll", revealHistoria);
+</script>
+
+<script>
+  function revealEquipo() {
+    const equipo = document.querySelector(".equipo-container");
+    const rect = equipo.getBoundingClientRect();
+    const ventana = window.innerHeight || document.documentElement.clientHeight;
+
+    if (rect.top <= ventana - 100) {
+      equipo.classList.add("visible");
+      window.removeEventListener("scroll", revealEquipo);
+    }
+  }
+
+  window.addEventListener("scroll", revealEquipo);
 </script>
 
 <!-- Modal para mostrar fotos de acción -->
