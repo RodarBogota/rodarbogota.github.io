@@ -885,18 +885,20 @@ function startPromoRotation() {
 <script>
   function revealEquipo() {
     const equipo = document.querySelector(".equipo-container");
+    if (!equipo) return;
+
     const rect = equipo.getBoundingClientRect();
     const ventana = window.innerHeight || document.documentElement.clientHeight;
 
     if (rect.top <= ventana - 100) {
       equipo.classList.add("visible");
-      window.removeEventListener("scroll", revealEquipo);
     }
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    revealEquipo(); // ✅ Ejecuta al cargar por si ya está en pantalla
     window.addEventListener("scroll", revealEquipo);
-  }); // ✅ Esta línea FALTABA para cerrar correctamente
+  });
 </script>
 
 <!-- Modal para mostrar fotos de acción -->
