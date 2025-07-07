@@ -360,6 +360,7 @@
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease;
+  margin-bottom: 25px; /* 📏 Separación vertical entre mecánicos */
 }
 
 .mecanico-card:hover {
@@ -636,11 +637,18 @@
 <h2 class="equipo-titulo">🔧 Conoce a los mecánicos que hacen posible Rodar Bogotá</h2>
 
 <div class="equipo-container">
+  <h2 class="equipo-titulo">🔧 Conoce a los mecánicos que hacen posible Rodar Bogotá</h2>
+
+<div class="equipo-container">
   <!-- Mecánico 1 - Luis -->
   <div class="mecanico-card">
-    <img src="fotoL.jpeg" alt="Luis - Mecánico" data-accion="fotoL-accion.jpeg">
+    <div style="width: 45%; position: relative;">
+      <img src="fotoL.jpeg" alt="Luis - Mecánico" data-accion="fotoL-accion.jpeg" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; bottom: 0; width: 100%; background: rgba(255,255,255,0.9); text-align: left; padding: 8px 10px; font-weight: bold; font-size: 14px; color: #000;">
+        Luis
+      </div>
+    </div>
     <div class="mecanico-info">
-      <h3 style="margin-top:0; font-size:16px; color:#000;">Luis</h3>
       ⚡ Apasionado por las bicis desde 2018.<br>
       Cofundador de Rodar Bogotá.<br>
       Trato justo y servicio honesto.
@@ -649,15 +657,20 @@
 
   <!-- Mecánico 2 - Messy -->
   <div class="mecanico-card">
-    <img src="fotoM.jpeg" alt="Messy - Mecánico" data-accion="fotoM-accion.jpeg">
+    <div style="width: 45%; position: relative;">
+      <img src="fotoM.jpeg" alt="Messy - Mecánico" data-accion="fotoM-accion.jpeg" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; bottom: 0; width: 100%; background: rgba(255,255,255,0.9); text-align: left; padding: 8px 10px; font-weight: bold; font-size: 14px; color: #000;">
+        Messy
+      </div>
+    </div>
     <div class="mecanico-info">
-      <h3 style="margin-top:0; font-size:16px; color:#000;">Messy</h3>
       🧰 12 años de experiencia en electromecánica.<br>
       Especialista en montallantas.<br>
       “Deja el trabajo bien hecho o no lo entregues”.
     </div>
   </div>
 </div>
+
 
 <!-- Este es el encabezado del carrusel de reseñas de clientes -->    
 <div class="reseñas-titulo">
