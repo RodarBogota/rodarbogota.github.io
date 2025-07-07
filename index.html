@@ -928,13 +928,32 @@ function startPromoRotation() {
 
   document.querySelectorAll(".mecanico-card").forEach(card => {
     card.addEventListener("click", () => {
-      const nombre = card.querySelector("img").alt.split(" ")[0]; // Luis o Messy
+      const nombre = card.querySelector("img").alt.split(" ")[0];
       galeriaActiva = galerias[nombre] || [];
       imagenActual = 0;
       modalImg.src = galeriaActiva[imagenActual];
       modal.style.display = "flex";
     });
   });
+
+  // Navegación con teclado ← →
+  document.addEventListener("keydown", e => {
+    if (modal.style.display === "flex" && galeriaActiva.length > 1) {
+      if (e.key === "ArrowRight") {
+        imagenActual = (imagenActual + 1) % galeriaActiva.length;
+        modalImg.src = galeriaActiva[imagenActual];
+      }
+      if (e.key === "ArrowLeft") {
+        imagenActual = (imagenActual - 1 + galeriaActiva.length) % galeriaActiva.length;
+        modalImg.src = galeriaActiva[imagenActual];
+      }
+    }
+  });
+
+  modal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+</script>
 
   document.addEventListener("keydown", e => {
     if (modal.style.display === "flex" && galeriaActiva.length > 1) {
