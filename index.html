@@ -910,14 +910,43 @@ function startPromoRotation() {
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modal-img");
 
+  const galerias = {
+    "Luis": [
+      "galeriaLuis/fotoL-accion1.jpeg",
+      "galeriaLuis/fotoL-accion2.jpeg",
+      "galeriaLuis/fotoL-accion3.jpeg"
+    ],
+    "Messy": [
+      "galeriaMessy/fotoM-accion1.jpeg",
+      "galeriaMessy/fotoM2-accion.jpeg",
+      "galeriaMessy/fotoM3-accion.jpeg"
+    ]
+  };
+
+  let imagenActual = 0;
+  let galeriaActiva = [];
+
   document.querySelectorAll(".mecanico-card").forEach(card => {
     card.addEventListener("click", () => {
-      const img = card.querySelector("img").getAttribute("data-accion");
-      if (img) {
-        modalImg.src = img;
-        modal.style.display = "flex";
-      }
+      const nombre = card.querySelector("img").alt.split(" ")[0]; // Luis o Messy
+      galeriaActiva = galerias[nombre] || [];
+      imagenActual = 0;
+      modalImg.src = galeriaActiva[imagenActual];
+      modal.style.display = "flex";
     });
+  });
+
+  document.addEventListener("keydown", e => {
+    if (modal.style.display === "flex" && galeriaActiva.length > 1) {
+      if (e.key === "ArrowRight") {
+        imagenActual = (imagenActual + 1) % galeriaActiva.length;
+        modalImg.src = galeriaActiva[imagenActual];
+      }
+      if (e.key === "ArrowLeft") {
+        imagenActual = (imagenActual - 1 + galeriaActiva.length) % galeriaActiva.length;
+        modalImg.src = galeriaActiva[imagenActual];
+      }
+    }
   });
 
   modal.addEventListener("click", () => {
