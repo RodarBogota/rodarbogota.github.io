@@ -342,76 +342,45 @@
   color: #000;
 }
 
-.equipo-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
 .mecanico-card {
-  width: 160px;
-  height: 230px;
-  perspective: 1000px;
-  cursor: pointer;
-}
-
-.mecanico-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.mecanico-card.volteado .mecanico-inner {
-  transform: rotateY(180deg);
-}
-
-.mecanico-front, .mecanico-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
+  width: 180px;
+  height: 300px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  background: rgba(255,255,255,0.9);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  cursor: zoom-in;
 }
 
-.mecanico-front img, .mecanico-back img {
+.mecanico-card:hover {
+  transform: scale(1.05);
+}
+
+.mecanico-card img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
 }
 
-.mecanico-front h3 {
-  margin: 10px 0 0;
-  font-size: 16px;
-  color: #000;
-}
-
-.mecanico-back {
-  transform: rotateY(180deg);
-  padding: 10px;
-  text-align: center;
-}
-
-.mecanico-back p {
+.mecanico-info {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.65);
+  color: white;
+  padding: 12px;
   font-size: 13px;
-  color: #333;
+  font-weight: bold;
+  text-align: center;
+  transition: bottom 0.5s ease;
 }
 
- .mecanico-back img {
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* ✅ Así la imagen se escala sin recorte */
-  max-height: 120px; /* Ajusta este valor según la proporción de tu imagen */
+.mecanico-card:hover .mecanico-info {
+  bottom: 0;
 }
 
 .historia-rodar {
@@ -664,31 +633,23 @@
 <h2 class="equipo-titulo">🔧 Conoce a los mecánicos que hacen posible Rodar Bogotá</h2>
 
 <div class="equipo-container">
-  <!-- Mecanico 1 -->
-  <div class="mecanico-card" onclick="voltearTarjeta(this)">
-    <div class="mecanico-inner">
-      <div class="mecanico-front">
-        <img src="fotoL.jpeg" alt="Luis - Mecánico" />
-        <h3>Luis</h3>
-      </div>
-      <div class="mecanico-back">
-        <img src="fotoL-accion.jpeg" alt="Luis trabajando" />
-        <p>Más de 5 años reparando bicicletas de todas las gamas en Suba. Cofundador de Rodar Bogotá y apasionado por brindar un servicio rápido, honesto y con propósito.</p>
-      </div>
+  <!-- Mecánico 1 - Luis -->
+  <div class="mecanico-card">
+    <img src="fotoL.jpeg" alt="Luis - Mecánico" data-accion="fotoL-accion.jpeg">
+    <div class="mecanico-info">
+      ⚡ Apasionado por las bicis desde 2018.<br>
+      Cofundador de Rodar Bogotá.<br>
+      Trato justo y servicio honesto.
     </div>
   </div>
 
-  <!-- Mecanico 2 -->
-  <div class="mecanico-card" onclick="voltearTarjeta(this)">
-    <div class="mecanico-inner">
-      <div class="mecanico-front">
-        <img src="fotoM.jpeg" alt="Messy - Mecánico" />
-        <h3>Messy</h3>
-      </div>
-      <div class="mecanico-back">
-        <img src="fotoM-accion.jpeg" alt="Messy trabajando" />
-        <p>12 años de experiencia. Especialista en electromecánica y montallantas. Su lema: “Deja el trabajo bien hecho o no lo entregues”.</p>
-      </div>
+  <!-- Mecánico 2 - Messy -->
+  <div class="mecanico-card">
+    <img src="fotoM.jpeg" alt="Messy - Mecánico" data-accion="fotoM-accion.jpeg">
+    <div class="mecanico-info">
+      🧰 12 años de experiencia en electromecánica.<br>
+      Especialista en montallantas.<br>
+      “Deja el trabajo bien hecho o no lo entregues”.
     </div>
   </div>
 </div>
@@ -900,6 +861,31 @@ function startPromoRotation() {
 
   window.addEventListener("scroll", revealHistoria);
 </script>
+
+<script>
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modal-img");
+
+  document.querySelectorAll(".mecanico-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const img = card.querySelector("img").getAttribute("data-accion");
+      if (img) {
+        modalImg.src = img;
+        modal.style.display = "flex";
+      }
+    });
+  });
+
+  modal.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+</script>
+
+<!-- Modal para mostrar fotos de acción -->
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+  <img id="modal-img" src="" alt="Foto en acción" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
+
 
 <footer style="border-top: 1px solid #ccc; margin-top: 40px; padding: 20px 10px; text-align: center; font-size: 14px; color: #555;">
   © 2025 Rodar Bogotá. Todos los derechos reservados · Sitio desarrollado por
