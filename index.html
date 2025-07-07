@@ -347,7 +347,7 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px; /* 🔧 Separación entre tarjetas */
 }
 
 .mecanico-card {
@@ -382,7 +382,7 @@
   justify-content: center;
   width: 55%;
   text-align: left;
-  background-color: #fdf7e2;
+  background: rgba(255, 255, 255, 0.9);
   font-weight: bold;
 }
 
@@ -636,11 +636,11 @@
 <h2 class="equipo-titulo">🔧 Conoce a los mecánicos que hacen posible Rodar Bogotá</h2>
 
 <div class="equipo-container">
-  <div class="equipo-container">
   <!-- Mecánico 1 - Luis -->
   <div class="mecanico-card">
     <img src="fotoL.jpeg" alt="Luis - Mecánico" data-accion="fotoL-accion.jpeg">
     <div class="mecanico-info">
+      <h3 style="margin-top:0; font-size:16px; color:#000;">Luis</h3>
       ⚡ Apasionado por las bicis desde 2018.<br>
       Cofundador de Rodar Bogotá.<br>
       Trato justo y servicio honesto.
@@ -651,6 +651,7 @@
   <div class="mecanico-card">
     <img src="fotoM.jpeg" alt="Messy - Mecánico" data-accion="fotoM-accion.jpeg">
     <div class="mecanico-info">
+      <h3 style="margin-top:0; font-size:16px; color:#000;">Messy</h3>
       🧰 12 años de experiencia en electromecánica.<br>
       Especialista en montallantas.<br>
       “Deja el trabajo bien hecho o no lo entregues”.
