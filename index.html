@@ -342,45 +342,48 @@
   color: #000;
 }
 
+..equipo-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
 .mecanico-card {
-  width: 180px;
-  height: 300px;
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255,255,255,0.9);
   border-radius: 12px;
-  overflow: hidden;
-  background-color: #fff;
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  position: relative;
+  overflow: hidden;
   cursor: pointer;
-  transition: transform 0.4s ease;
-  cursor: zoom-in;
+  transition: transform 0.3s ease;
 }
 
 .mecanico-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .mecanico-card img {
-  width: 100%;
-  height: 100%;
+  width: 45%;
   object-fit: cover;
+  height: 100%;
 }
 
 .mecanico-info {
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.65);
-  color: white;
-  padding: 12px;
-  font-size: 13px;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55%;
+  text-align: left;
+  background-color: #fdf7e2;
   font-weight: bold;
-  text-align: center;
-  transition: bottom 0.5s ease;
-}
-
-.mecanico-card:hover .mecanico-info {
-  bottom: 0;
 }
 
 .historia-rodar {
@@ -633,6 +636,7 @@
 <h2 class="equipo-titulo">🔧 Conoce a los mecánicos que hacen posible Rodar Bogotá</h2>
 
 <div class="equipo-container">
+  <div class="equipo-container">
   <!-- Mecánico 1 - Luis -->
   <div class="mecanico-card">
     <img src="fotoL.jpeg" alt="Luis - Mecánico" data-accion="fotoL-accion.jpeg">
@@ -653,7 +657,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- Este es el encabezado del carrusel de reseñas de clientes -->    
 <div class="reseñas-titulo">
@@ -862,6 +865,11 @@ function startPromoRotation() {
   window.addEventListener("scroll", revealHistoria);
 </script>
 
+<!-- Modal para mostrar fotos de acción -->
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+  <img id="modal-img" src="" alt="Foto en acción" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
+  
 <script>
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modal-img");
@@ -880,12 +888,6 @@ function startPromoRotation() {
     modal.style.display = "none";
   });
 </script>
-
-<!-- Modal para mostrar fotos de acción -->
-<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
-  <img id="modal-img" src="" alt="Foto en acción" style="max-width:90%; max-height:90%; border-radius:10px;">
-</div>
-
 
 <footer style="border-top: 1px solid #ccc; margin-top: 40px; padding: 20px 10px; text-align: center; font-size: 14px; color: #555;">
   © 2025 Rodar Bogotá. Todos los derechos reservados · Sitio desarrollado por
