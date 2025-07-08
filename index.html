@@ -906,14 +906,15 @@ function startPromoRotation() {
   <button id="prev" style="position:absolute; left:20px; font-size:30px; color:white; background:none; border:none; cursor:pointer;">❮</button>
   <div id="modal-content"></div>
   <button id="next" style="position:absolute; right:20px; font-size:30px; color:white; background:none; border:none; cursor:pointer;">❯</button>
+  <button id="cerrar-modal" style="position:absolute; top:20px; right:20px; font-size:20px; background:none; border:none; color:white; cursor:pointer; z-index:99999;">❌</button>
 </div>
 
-  
-<script>
+  <script>
   const modal = document.getElementById("modal");
   const modalContent = document.getElementById("modal-content");
   const btnPrev = document.getElementById("prev");
   const btnNext = document.getElementById("next");
+  const btnCerrar = document.getElementById("cerrar-modal");
 
   const galerias = {
     "Luis": [
@@ -954,7 +955,6 @@ function startPromoRotation() {
       video.style.maxHeight = "90%";
       video.style.borderRadius = "10px";
 
-      // Evita que el video intercepte las flechas del teclado
       video.addEventListener("keydown", function(e) {
         if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
           e.preventDefault();
@@ -1013,6 +1013,11 @@ function startPromoRotation() {
       modal.style.display = "none";
       modalContent.innerHTML = "";
     }
+  });
+
+  btnCerrar.addEventListener("click", () => {
+    modal.style.display = "none";
+    modalContent.innerHTML = "";
   });
 
   // 👇 Soporte para gestos táctiles en móviles
