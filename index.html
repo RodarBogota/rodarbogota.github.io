@@ -913,7 +913,7 @@ function startPromoRotation() {
   const modalImg = document.getElementById("modal-img");
   const btnPrev = document.getElementById("prev");
   const btnNext = document.getElementById("next");
-  
+
   const galerias = {
     "Luis": [
       "galeriaLuis/fotoL-accion.jpeg",
@@ -932,6 +932,7 @@ function startPromoRotation() {
   let imagenActual = 0;
   let galeriaActiva = [];
 
+  // Abrir modal al hacer clic en un mecánico
   document.querySelectorAll(".mecanico-card").forEach(card => {
     card.addEventListener("click", () => {
       const nombre = card.querySelector("img").alt.split(" ")[0];
@@ -942,8 +943,26 @@ function startPromoRotation() {
     });
   });
 
-  // Navegación con teclado ← →
-  document.addEventListener("keydown", e => {
+  // Flecha izquierda (previa)
+  btnPrev.addEventListener("click", (e) => {
+    e.stopPropagation(); // Evita que se cierre el modal por este clic
+    if (galeriaActiva.length > 1) {
+      imagenActual = (imagenActual - 1 + galeriaActiva.length) % galeriaActiva.length;
+      modalImg.src = galeriaActiva[imagenActual];
+    }
+  });
+
+  // Flecha derecha (siguiente)
+  btnNext.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (galeriaActiva.length > 1) {
+      imagenActual = (imagenActual + 1) % galeriaActiva.length;
+      modalImg.src = galeriaActiva[imagenActual];
+    }
+  });
+
+  // Navegación por teclado
+  document.addEventListener("keydown", (e) => {
     if (modal.style.display === "flex" && galeriaActiva.length > 1) {
       if (e.key === "ArrowRight") {
         imagenActual = (imagenActual + 1) % galeriaActiva.length;
@@ -953,16 +972,18 @@ function startPromoRotation() {
         imagenActual = (imagenActual - 1 + galeriaActiva.length) % galeriaActiva.length;
         modalImg.src = galeriaActiva[imagenActual];
       }
+      if (e.key === "Escape") {
+        modal.style.display = "none";
+      }
     }
   });
 
-  modal.addEventListener("click", e => {
-  const clickedElement = e.target;
-  if (clickedElement !== modalImg && clickedElement !== btnPrev && clickedElement !== btnNext) {
-    modal.style.display = "none";
-  }
-});
-
+  // Cierre del modal solo si el clic fue fuera de los elementos internos
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 </script>
 
 <footer style="border-top: 1px solid #ccc; margin-top: 40px; padding: 20px 10px; text-align: center; font-size: 14px; color: #555;">
