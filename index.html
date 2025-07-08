@@ -953,6 +953,12 @@ function startPromoRotation() {
       video.style.maxWidth = "90%";
       video.style.maxHeight = "90%";
       video.style.borderRadius = "10px";
+       // 👇 Este bloque evita que el video intercepte las flechas del teclado
+  video.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      e.preventDefault();
+    }
+  });
       modalContent.appendChild(video);
     }
   }
