@@ -904,83 +904,106 @@ function startPromoRotation() {
 <!-- Modal para mostrar fotos en galería -->
 <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
   <button id="prev" style="position:absolute; left:20px; font-size:30px; color:white; background:none; border:none; cursor:pointer;">❮</button>
-  <img id="modal-img" src="" alt="Foto en acción" style="max-width:90%; max-height:90%; border-radius:10px;">
+  <div id="modal-content"></div>
   <button id="next" style="position:absolute; right:20px; font-size:30px; color:white; background:none; border:none; cursor:pointer;">❯</button>
 </div>
+
   
 <script>
   const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modal-img");
+  const modalContent = document.getElementById("modal-content");
   const btnPrev = document.getElementById("prev");
   const btnNext = document.getElementById("next");
 
   const galerias = {
     "Luis": [
-      "galeriaLuis/fotoL-accion.jpeg",
-      "galeriaLuis/fotoL2-accion.jpeg",
-      "galeriaLuis/fotoL3-accion.jpeg"
+      { tipo: "imagen", src: "galeriaLuis/fotoL-accion.jpeg" },
+      { tipo: "imagen", src: "galeriaLuis/fotoL2-accion.jpeg" },
+      { tipo: "video", src: "galeriaLuis/videoL1.mp4" }
     ],
     "Messy": [
-      "galeriaMessy/fotoM-accion.jpeg",
-      "galeriaMessy/fotoM2-accion.jpeg",
-      "galeriaMessy/fotoM3-accion.jpeg",
-      "galeriaMessy/fotoM4-accion.jpeg"
+      { tipo: "imagen", src: "galeriaMessy/fotoM-accion.jpeg" },
+      { tipo: "video", src: "galeriaMessy/videoM1.mp4" },
+      { tipo: "imagen", src: "galeriaMessy/fotoM2-accion.jpeg" }
     ]
   };
 
   let imagenActual = 0;
   let galeriaActiva = [];
 
-  // Abrir modal al hacer clic en un mecánico
+  function mostrarElemento(index) {
+    modalContent.innerHTML = ""; // Limpia contenido anterior
+    const item = galeriaActiva[index];
+
+    if (item.tipo === "imagen") {
+      const img = document.createElement("img");
+      img.src = item.src;
+      img.alt = "Multimedia";
+      img.style.maxWidth = "90%";
+      img.style.maxHeight = "90%";
+      img.style.borderRadius = "10px";
+      modalContent.appendChild(img);
+    }
+
+    if (item.tipo === "video") {
+      const video = document.createElement("video");
+      video.src = item.src;
+      video.controls = true;
+      video.autoplay = true;
+      video.style.maxWidth = "90%";
+      video.style.maxHeight = "90%";
+      video.style.borderRadius = "10px";
+      modalContent.appendChild(video);
+    }
+  }
+
   document.querySelectorAll(".mecanico-card").forEach(card => {
     card.addEventListener("click", () => {
       const nombre = card.querySelector("img").alt.split(" ")[0];
       galeriaActiva = galerias[nombre] || [];
       imagenActual = 0;
-      modalImg.src = galeriaActiva[imagenActual];
+      mostrarElemento(imagenActual);
       modal.style.display = "flex";
     });
   });
 
-  // Flecha izquierda (previa)
   btnPrev.addEventListener("click", (e) => {
-    e.stopPropagation(); // Evita que se cierre el modal por este clic
+    e.stopPropagation();
     if (galeriaActiva.length > 1) {
       imagenActual = (imagenActual - 1 + galeriaActiva.length) % galeriaActiva.length;
-      modalImg.src = galeriaActiva[imagenActual];
+      mostrarElemento(imagenActual);
     }
   });
 
-  // Flecha derecha (siguiente)
   btnNext.addEventListener("click", (e) => {
     e.stopPropagation();
     if (galeriaActiva.length > 1) {
       imagenActual = (imagenActual + 1) % galeriaActiva.length;
-      modalImg.src = galeriaActiva[imagenActual];
+      mostrarElemento(imagenActual);
     }
   });
 
-  // Navegación por teclado
   document.addEventListener("keydown", (e) => {
-    if (modal.style.display === "flex" && galeriaActiva.length > 1) {
+    if (modal.style.display === "flex" && galeriaActiva.length > 0) {
       if (e.key === "ArrowRight") {
         imagenActual = (imagenActual + 1) % galeriaActiva.length;
-        modalImg.src = galeriaActiva[imagenActual];
+        mostrarElemento(imagenActual);
       }
       if (e.key === "ArrowLeft") {
         imagenActual = (imagenActual - 1 + galeriaActiva.length) % galeriaActiva.length;
-        modalImg.src = galeriaActiva[imagenActual];
+        mostrarElemento(imagenActual);
       }
       if (e.key === "Escape") {
         modal.style.display = "none";
+        modalContent.innerHTML = "";
       }
     }
   });
 
-  // Cierre del modal solo si el clic fue fuera de los elementos internos
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.style.display = "none";
+      modalContent.innerHTML = "";
     }
   });
 </script>
