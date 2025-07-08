@@ -932,7 +932,7 @@ function startPromoRotation() {
   let galeriaActiva = [];
 
   function mostrarElemento(index) {
-    modalContent.innerHTML = ""; // Limpia contenido anterior
+    modalContent.innerHTML = "";
     const item = galeriaActiva[index];
 
     if (item.tipo === "imagen") {
@@ -953,12 +953,14 @@ function startPromoRotation() {
       video.style.maxWidth = "90%";
       video.style.maxHeight = "90%";
       video.style.borderRadius = "10px";
-       // 👇 Este bloque evita que el video intercepte las flechas del teclado
-  video.addEventListener("keydown", function(e) {
-    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-      e.preventDefault();
-    }
-  });
+
+      // Evita que el video intercepte las flechas del teclado
+      video.addEventListener("keydown", function(e) {
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+          e.preventDefault();
+        }
+      });
+
       modalContent.appendChild(video);
     }
   }
@@ -1011,6 +1013,33 @@ function startPromoRotation() {
       modal.style.display = "none";
       modalContent.innerHTML = "";
     }
+  });
+
+  // 👇 Soporte para gestos táctiles en móviles
+  let inicioX = null;
+
+  modal.addEventListener("touchstart", function(e) {
+    if (e.touches.length === 1) {
+      inicioX = e.touches[0].clientX;
+    }
+  });
+
+  modal.addEventListener("touchend", function(e) {
+    if (!inicioX || e.changedTouches.length !== 1) return;
+
+    const finX = e.changedTouches[0].clientX;
+    const diferencia = inicioX - finX;
+
+    if (Math.abs(diferencia) > 50) {
+      if (diferencia > 0) {
+        imagenActual = (imagenActual + 1) % galeriaActiva.length;
+      } else {
+        imagenActual = (imagenActual - 1 + galeriaActiva.length) % galeriaActiva.length;
+      }
+      mostrarElemento(imagenActual);
+    }
+
+    inicioX = null;
   });
 </script>
 
