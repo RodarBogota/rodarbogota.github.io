@@ -956,9 +956,13 @@ function startPromoRotation() {
     }
   });
 
-  modal.addEventListener("click", () => {
+  modal.addEventListener("click", e => {
+  const clickedElement = e.target;
+  if (clickedElement !== modalImg && clickedElement !== btnPrev && clickedElement !== btnNext) {
     modal.style.display = "none";
-  });
+  }
+});
+
 </script>
 
 <footer style="border-top: 1px solid #ccc; margin-top: 40px; padding: 20px 10px; text-align: center; font-size: 14px; color: #555;">
