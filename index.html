@@ -955,24 +955,6 @@ function startPromoRotation() {
   });
 </script>
 
-  document.addEventListener("keydown", e => {
-    if (modal.style.display === "flex" && galeriaActiva.length > 1) {
-      if (e.key === "ArrowRight") {
-        imagenActual = (imagenActual + 1) % galeriaActiva.length;
-        modalImg.src = galeriaActiva[imagenActual];
-      }
-      if (e.key === "ArrowLeft") {
-        imagenActual = (imagenActual - 1 + galeriaActiva.length) % galeriaActiva.length;
-        modalImg.src = galeriaActiva[imagenActual];
-      }
-    }
-  });
-
-  modal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-</script>
-
 <footer style="border-top: 1px solid #ccc; margin-top: 40px; padding: 20px 10px; text-align: center; font-size: 14px; color: #555;">
   © 2025 Rodar Bogotá. Todos los derechos reservados · Sitio desarrollado por
   <a href="https://tudominio.com" target="_blank" style="color:#007acc; text-decoration: none; font-weight: bold;">Barrallano Studio</a>
