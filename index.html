@@ -468,6 +468,31 @@
   transform: translateY(0);
 }
 
+/* 🎧 Estilos CSS */
+.podcast-audio {
+  background: linear-gradient(135deg, #f2f2f2, #ffffff);
+  padding: 40px 20px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 50px auto;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.podcast-audio h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #222;
+  font-weight: 600;
+}
+
+.podcast-audio audio {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
 </style>
 
 <!-- 🎯 Schema Markup de Rodar Bogotá -->
@@ -638,6 +663,15 @@
       </div>
       <button class="leer-mas" onclick="toggleHistoria()">⬇ Leer más</button>
   </div>
+</section>
+
+<section class="podcast-audio" style="margin: 40px 0; text-align: center;">
+  <h2>🎧 Escucha el podcast</h2>
+  <p>Rodar al Aire — Episodio 1: historias ciclistas, mecánica con propósito, y cómo nació nuestro taller.</p>
+  <audio controls style="width: 80%; max-width: 600px;">
+    <source src="podcast/rodar-episodio1.wav" type="audio/wav">
+    Tu navegador no soporta el audio.
+  </audio>
 </section>
 
 <h2 class="equipo-titulo">🔧 Conoce a los mecánicos que hacen posible Rodar Bogotá</h2>
