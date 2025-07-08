@@ -493,18 +493,6 @@
   border: none;
 }
 
-/* Efecto entrada desde la izquierda */
-.efecto-izquierda {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: all 0.8s ease;
-}
-
-.efecto-izquierda.activo {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 </style>
 
 <!-- 🎯 Schema Markup de Rodar Bogotá -->
@@ -677,10 +665,10 @@
   </div>
 </section>
 
-<section class="podcast-audio efecto-izquierda">
-  <h2>Rodar al Aire – Mi Podcast</h2>
-  <p>Episodio 1: historias ciclistas, mecánica con propósito, y cómo nació nuestro taller.</p>
-  <audio controls>
+<section class="podcast-audio" style="margin: 40px 0; text-align: center;">
+  <h2>🎧 Escucha el podcast</h2>
+  <p>Rodar al Aire — Episodio 1: historias ciclistas, mecánica con propósito, y cómo nació nuestro taller.</p>
+  <audio controls style="width: 80%; max-width: 600px;">
     <source src="podcast/rodar-episodio1.wav" type="audio/wav">
     Tu navegador no soporta el audio.
   </audio>
