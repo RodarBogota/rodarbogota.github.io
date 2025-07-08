@@ -468,29 +468,36 @@
   transform: translateY(0);
 }
 
-/* 🎧 Estilos CSS */
 .podcast-audio {
-  background: linear-gradient(135deg, #f2f2f2, #ffffff);
-  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
   border-radius: 12px;
   max-width: 700px;
   margin: 50px auto;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', sans-serif;
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.podcast-audio.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .podcast-audio h2 {
   font-size: 26px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   color: #222;
   font-weight: 600;
 }
 
-.podcast-audio audio {
-  width: 100%;
-  outline: none;
-  border: none;
+.podcast-audio p {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 20px;
 }
 
 </style>
@@ -665,9 +672,9 @@
   </div>
 </section>
 
-<section class="podcast-audio" style="margin: 40px 0; text-align: center;">
-  <h2>🎧 Escucha el podcast</h2>
-  <p>Rodar al Aire — Episodio 1: historias ciclistas, mecánica con propósito, y cómo nació nuestro taller.</p>
+<section class="podcast-audio">
+  <h2>Rodar al Aire – Mi Podcast</h2>
+  <p>Episodio 1: historias ciclistas, mecánica con propósito y cómo nació nuestro taller.</p>
   <audio controls style="width: 80%; max-width: 600px;">
     <source src="podcast/rodar-episodio1.wav" type="audio/wav">
     Tu navegador no soporta el audio.
@@ -1080,6 +1087,24 @@ function startPromoRotation() {
 
     inicioX = null;
   });
+</script>
+
+<script>
+  function revealPodcast() {
+    const podcast = document.querySelector(".podcast-audio");
+    if (!podcast) return;
+
+    const rect = podcast.getBoundingClientRect();
+    const ventana = window.innerHeight || document.documentElement.clientHeight;
+
+    if (rect.top <= ventana - 100) {
+      podcast.classList.add("visible");
+      window.removeEventListener("scroll", revealPodcast);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", revealPodcast);
+  window.addEventListener("scroll", revealPodcast);
 </script>
 
 <footer style="border-top: 1px solid #ccc; margin-top: 40px; padding: 20px 10px; text-align: center; font-size: 14px; color: #555;">
