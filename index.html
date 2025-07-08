@@ -901,23 +901,27 @@ function startPromoRotation() {
   });
 </script>
 
-<!-- Modal para mostrar fotos de acción -->
-<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+<!-- Modal para mostrar fotos en galería -->
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999;">
+  <button id="prev" style="position:absolute; left:20px; font-size:30px; color:white; background:none; border:none; cursor:pointer;">❮</button>
   <img id="modal-img" src="" alt="Foto en acción" style="max-width:90%; max-height:90%; border-radius:10px;">
+  <button id="next" style="position:absolute; right:20px; font-size:30px; color:white; background:none; border:none; cursor:pointer;">❯</button>
 </div>
   
 <script>
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modal-img");
-
+  const btnPrev = document.getElementById("prev");
+  const btnNext = document.getElementById("next");
+  
   const galerias = {
-    "Luis": [
-      "galeriaLuis/fotoL-accion.jpeg",
-      "galeriaLuis/fotoL2-accion.jpeg",
-      "galeriaLuis/fotoL3-accion.jpeg"
+      "Luis": [
+      "galeriaLuis/fotoL-accion1.jpeg",
+      "galeriaLuis/fotoL-accion2.jpeg",
+      "galeriaLuis/fotoL-accion3.jpeg"
     ],
     "Messy": [
-      "galeriaMessy/fotoM-accion.jpeg",
+      "galeriaMessy/fotoM-accion1.jpeg",
       "galeriaMessy/fotoM2-accion.jpeg",
       "galeriaMessy/fotoM3-accion.jpeg"
     ]
