@@ -74,41 +74,113 @@
       margin-bottom: 5px;
     }
 
-    a.button {
-      display: block;
-      background: #28a745;
-      color: white;
-      padding: 10px 20px;
-      margin: 10px auto;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      position: fixed;
-      bottom: 40px;
-      right: 15px;
-      z-index: 9999;
-      font-size: 16px;
-    }
+   .whatsapp-boton {
+  position: fixed;
+  bottom: 40px;
+  right: 15px;
+  z-index: 9999;
+  display: block;
+}
 
-    footer {
+.whatsapp-boton img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-boton img:hover {
+  transform: scale(1.1);
+}
+
+.footer {
       margin-top: 40px;
       font-size: 13px;
       color: #555;
       background: rgba(255,255,255,0.85);
       padding: 15px;
-    }
+}
+    
   </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Rodar Bogotá - Taller de Bicicletas",
+  "image": "https://www.rodarbogota.com.co/logo.png",
+  "url": "https://www.rodarbogota.com.co/taller-bicicletas-suba-gaitana/",
+  "telephone": "+57 302 746 6009",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Suba La Gaitana",
+    "addressLocality": "Bogotá",
+    "addressRegion": "Cundinamarca",
+    "postalCode": "111121",
+    "addressCountry": "CO"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 4.753,
+    "longitude": -74.084
+  },
+  "openingHours": "Mo-Su 09:00-18:00",
+  "priceRange": "$",
+  "areaServed": [
+    { "@type": "Place", "name": "Bogotá" },
+    { "@type": "Place", "name": "Suba" },
+    { "@type": "Place", "name": "Suba La Gaitana" },
+    { "@type": "Place", "name": "Lisboa" },
+    { "@type": "Place", "name": "Tibabuyes" },
+    { "@type": "Place", "name": "Verona" },
+    { "@type": "Place", "name": "Villa María" },
+    { "@type": "Place", "name": "Fontanar del Río" },
+    { "@type": "Place", "name": "Aures" },
+    { "@type": "Place", "name": "Miramar" },
+    { "@type": "Place", "name": "Santa Cecilia" },
+    { "@type": "Place", "name": "Bogotá Norte" },
+    { "@type": "Place", "name": "Suba Rincón" },
+    { "@type": "Place", "name": "San Pedro de Tibabuyes" }
+  ],
+  "keywords": [
+    "taller de bicicletas Suba Gaitana",
+    "reparación bicicletas sin cita Bogotá",
+    "bicicletería Suba norte",
+    "lavado de bicicletas MTB Suba",
+    "frenos Shimano Bogotá",
+    "mantenimiento de bicicletas Suba gaitana",
+    "ajuste de rines bicicleta Suba"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": "Reparación de bicicletas urbanas y MTB sin cita en Suba Gaitana y Tibabuyes" },
+    { "@type": "Offer", "itemOffered": "Lavado profesional con desinfección de transmisión para bicicletas en Suba norte" },
+    { "@type": "Offer", "itemOffered": "Ajuste de frenos Shimano MT200 y calibración para MTB y urbanas en Suba Gaitana" },
+    { "@type": "Offer", "itemOffered": "Diagnóstico y ajuste de transmisión para bicicletas en Lisboa y Fontanar del Río" },
+    { "@type": "Offer", "itemOffered": "Instalación de llantas Chaoyang y cartuchos Kenli para bicicletas en Tibabuyes y Villa María" },
+    { "@type": "Offer", "itemOffered": "Taller de bicicletas 5 estrellas cerca de mí con atención confiable en Tibabuyes y Santa Cecilia" },
+  ],
+  
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "32"
+  },
+  "description": "Taller de bicicletas en Suba Gaitana con atención sin cita previa. Ofrecemos reparación MTB y urbana, lavado profesional, frenos Shimano, ajuste de rines y servicios confiables todos los días."
+}
+</script>
+
 </head>
 <body>
 
   <div class="card">
     <img src="../logo.png" alt="Rodar Bogotá" class="logo" />
-    <h1>🚲 Taller de bicicletas sin cita en Suba Gaitana</h1>
-    <h2>Mantenimiento MTB y urbanas con atención confiable</h2>
-
-    <p>Tu bici necesita algo más que aire: necesita cuidado profesional. En Rodar Bogotá ofrecemos revisión, lavado y frenos Shimano sin cita previa. Atendemos en Suba Gaitana y barrios vecinos todos los días.</p>
-
-    <h3>✅ Servicios destacados:</h3>
+    <h1> Taller de bicicletas</h1>
+    
+    <h2 class="oculto-seo">Reparación de bicicletas sin cita en Suba Gaitana</h2>
+    <h2 class="oculto-seo">Lavado profesional y frenos Shimano para MTB y urbanas</h2>
+    
+    <h3>✅ ¿Qué le hacemos a tu bicicleta hoy?:</h3>
     <ul>
       <li>Frenos Shimano MT200, hidráulicos y mecánicos</li>
       <li>Lavado con desinfección de transmisión</li>
@@ -121,7 +193,9 @@
     <p>Rodamos contigo desde Suba norte, Tibabuyes, Lisboa y Villa María.</p>
   </div>
 
-  <a class="button" href="https://wa.me/573027466009">📲 Agendar por WhatsApp</a>
+  <a class="whatsapp-boton" href="https://wa.me/573027466009" target="_blank" rel="noopener">
+  <img src="../whatsapp-taller-de-bicicletas.png" alt="WhatsApp taller de bicicletas" />
+</a>
 
   <footer>
     © 2025 Rodar Bogotá · Sitio desarrollado por <a href="https://tudominio.com" target="_blank" style="color:#007acc; text-decoration: none; font-weight: bold;">Barrallano Studio</a>
