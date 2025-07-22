@@ -63,15 +63,17 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  justify-items: center;
-  margin: 20px 0;
+  margin: 20px auto;
+  max-width: 340px; /* 🔒 Limita el ancho total del grid */
+  width: 100%;
 }
 
 .btn-rect {
   background: rgba(255, 209, 0, 0.3); /* Amarillo Caterpillar con opacidad */
   color: #000;
-  width: 180px;
-  height: 60px;
+  width: 100%;        /* 🔄 Adáptate al ancho del contenedor */
+  max-width: 160px;   /* 🔒 No excedas el diseño deseado */
+  height: 52px;
   border-radius: 10px;
   display: flex;
   align-items: center;
