@@ -549,8 +549,13 @@
 {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "AutoRepair", "BicycleStore", "SportsActivityLocation"],
+  "@id": "https://www.rodarbogota.com.co/#rodarbogota",
   "name": "Rodar Bogotá – Bicicletería, Electromecánica y Montallantas",
   "image": "https://www.rodarbogota.com.co/logo.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.rodarbogota.com.co/logo.png"
+  },
   "url": "https://www.rodarbogota.com.co",
   "telephone": "+57 3027466009",
   "priceRange": "$",
@@ -578,6 +583,10 @@
   "https://www.findglocal.com/CO/Bogot%C3%A1/111617537287255/Rodar-Bogot%C3%A1"
 ],
   "description": "Rodar Bogotá es un taller especializado en bicicletas, electromecánica y montallantas ubicado en Suba La Gaitana. Ofrecemos servicios como instalación de luces LED, alarmas, radios, polarizados nanocerámicos, cambio de aceite, frenos, Car Audio y mantenimiento integral para motos y carros. Atendemos también en Lisboa, Tibabuyes, Villa María, Aures, Miramar, Verona, Fontanar del Río, Santa Cecilia y San Pedro de Tibabuyes. Servicio confiable, rápido y con atención todos los días.",
+  "founder": {
+    "@type": "Person",
+    "name": "Luis Chacón"
+  },
   "areaServed": [
     { "@type": "Place", "name": "Bogotá" },
     { "@type": "Place", "name": "Suba" },
@@ -594,44 +603,83 @@
     { "@type": "Place", "name": "Suba Rincón" },
     { "@type": "Place", "name": "San Pedro de Tibabuyes" }
   ],
-  "makesOffer": [
-  { "@type": "Offer", "itemOffered": "Reparación de bicicletas urbanas y MTB sin cita en Suba Gaitana y Tibabuyes" },
-  { "@type": "Offer", "itemOffered": "Lavado profesional con desinfección de transmisión para bicicletas en Suba norte" },
-  { "@type": "Offer", "itemOffered": "Ajuste de frenos Shimano MT200 y calibración para MTB y urbanas en Suba Gaitana" },
-  { "@type": "Offer", "itemOffered": "Diagnóstico y ajuste de transmisión para bicicletas en Lisboa y Fontanar del Río" },
-  { "@type": "Offer", "itemOffered": "Instalación de llantas Chaoyang y cartuchos Kenli para bicicletas en Tibabuyes y Villa María" },
-
-  { "@type": "Offer", "itemOffered": "Montallantas rápido para carros y motos sin cita en Suba Gaitana y Verona" },
-  { "@type": "Offer", "itemOffered": "Revisión gratuita de presión y válvula al cambiar llantas en Suba norte y Aures" },
-  { "@type": "Offer", "itemOffered": "Despinche profesional para motos con atención inmediata en Miramar y Villa María" },
-  { "@type": "Offer", "itemOffered": "Balanceo y rotación de llantas multimarcas con atención sin filas en Suba Gaitana" },
-  { "@type": "Offer", "itemOffered": "Montaje de llantas reforzadas para motos deportivas en Santa Cecilia y Tibabuyes Universal" },
-
-  { "@type": "Offer", "itemOffered": "Electromecánica multimarcas para motos y carros con repuestos originales en Suba Gaitana" },
-  { "@type": "Offer", "itemOffered": "Diagnóstico eléctrico y reparación de cableado para motos sin cita en Suba norte" },
-  { "@type": "Offer", "itemOffered": "Instalación de alarmas con GPS, sensores y bloqueo central en Tibabuyes y Santa Cecilia" },
-  { "@type": "Offer", "itemOffered": "Reparación de elevavidrios y revisión de encendido para carros en Villa María y Fontanar del Río" },
-  { "@type": "Offer", "itemOffered": "Instalación de radios Android, luces LED y sonido automotriz en Lisboa y Verona" },
-
-  { "@type": "Offer", "itemOffered": "Servicio técnico sin cita previa para bicicletas, motos y carros en Suba Gaitana" },
-  { "@type": "Offer", "itemOffered": "Revisión general con diagnóstico gratis en Tibabuyes y barrios vecinos" },
-  { "@type": "Offer", "itemOffered": "Cambio de aceite multimarcas con atención inmediata en Suba norte" },
-  { "@type": "Offer", "itemOffered": "Montallantas, polarizado y lavado profesional en un solo taller en Suba Gaitana" },
-  { "@type": "Offer", "itemOffered": "Agenda tu servicio por WhatsApp sin filas ni complicaciones desde Suba Gaitana" },
-
-  { "@type": "Offer", "itemOffered": "Instalación de luces LED para motos sin errores de compatibilidad en Suba Gaitana" },
-  { "@type": "Offer", "itemOffered": "Exploradoras Mini Driving, Motoled COB y bombillos cerámicos para motos urbanas" },
-  { "@type": "Offer", "itemOffered": "Direccionales LED, stop y luces antiniebla para motos en Tibabuyes y Lisboa" },
-  { "@type": "Offer", "itemOffered": "Asesoría personalizada y repuestos originales para iluminación de motos en Suba norte" },
-  { "@type": "Offer", "itemOffered": "Instalación de kits de luces LED deportivas con garantía en Suba Gaitana y Verona" },
-
-  { "@type": "Offer", "itemOffered": "Revisión técnica urgente cerca de mí para bicicletas, motos y carros en Suba norte" },
-  { "@type": "Offer", "itemOffered": "Cambio de llantas, luces y frenos cerca de mi ubicación sin cita en Suba Gaitana" },
-  { "@type": "Offer", "itemOffered": "Taller 5 estrellas cerca de mí con atención confiable en Tibabuyes y Santa Cecilia" },
-  { "@type": "Offer", "itemOffered": "Servicio técnico disponible hoy para moto y bicicleta en Suba Gaitana y barrios vecinos" },
-  { "@type": "Offer", "itemOffered": "Instalación de accesorios automotrices cerca de mí con garantía y atención inmediata en Suba norte" }
-],
-  
+  "service": [
+  {
+    "@type": "Service",
+    "name": "Taller de bicicletas",
+    "serviceType": "Reparación de bicicletas, Mantenimiento de bicicletas y venta de repuestos de bicicletas",
+    "description": "Taller de bicicletas, Bicicletería, Mantenimiento, repuestos, reparación y todo lo que necesite tu bicicleta en un solo lugar.",
+    "areaServed": [
+      { "@type": "Place", "name": "Suba Gaitana" },
+      { "@type": "Place", "name": "Tibabuyes" },
+      { "@type": "Place", "name": "Lisboa" },
+      { "@type": "Place", "name": "Fontanar del Río" },
+      { "@type": "Place", "name": "Suba norte" }
+    ],
+    "provider": {
+      "@id": "https://www.rodarbogota.com.co/#rodarbogota"
+},
+    "offers": [
+      { "@type": "Offer", "itemOffered": "Reparación de bicicletas urbanas y MTB sin cita en Suba Gaitana y Tibabuyes" },
+      { "@type": "Offer", "itemOffered": "Lavado profesional con desinfección de transmisión para bicicletas en Suba norte" },
+      { "@type": "Offer", "itemOffered": "Ajuste de frenos Shimano MT200 y calibración para MTB y urbanas en Suba Gaitana" },
+      { "@type": "Offer", "itemOffered": "Diagnóstico y ajuste de transmisión para bicicletas en Lisboa y Fontanar del Río" },
+      { "@type": "Offer", "itemOffered": "Instalación de llantas Chaoyang y cartuchos Kenli para bicicletas en Tibabuyes y Villa María" }
+    ]
+  },
+  {
+    "@type": "Service",
+    "name": "Montallantas",
+    "serviceType": "Montallantas 24/7 los fines de semana, Montallantas Automático, Montallantas 24 horas los fines de semana",
+    "description": "Montaje, revisión, balanceo y despinche de llantas para carros y motos con atención inmediata.",
+    "areaServed": [
+      { "@type": "Place", "name": "Suba Gaitana" },
+      { "@type": "Place", "name": "Verona" },
+      { "@type": "Place", "name": "Miramar" },
+      { "@type": "Place", "name": "Villa María" },
+      { "@type": "Place", "name": "Santa Cecilia" },
+      { "@type": "Place", "name": "Tibabuyes Universal" },
+      { "@type": "Place", "name": "Aures" },
+      { "@type": "Place", "name": "Suba norte" }
+    ],
+    "provider": {
+  "@id": "https://www.rodarbogota.com.co/#rodarbogota"
+},
+    "offers": [
+      { "@type": "Offer", "itemOffered": "Montallantas rápido para carros y motos sin cita en Suba Gaitana y Verona" },
+      { "@type": "Offer", "itemOffered": "Revisión gratuita de presión y válvula al cambiar llantas en Suba norte y Aures" },
+      { "@type": "Offer", "itemOffered": "Despinche profesional para motos con atención inmediata en Miramar y Villa María" },
+      { "@type": "Offer", "itemOffered": "Balanceo y rotación de llantas multimarcas con atención sin filas en Suba Gaitana" },
+      { "@type": "Offer", "itemOffered": "Montaje de llantas reforzadas para motos deportivas en Santa Cecilia y Tibabuyes Universal" }
+    ]
+  },
+  {
+    "@type": "Service",
+    "name": "Electromecánica",
+    "serviceType": "Reparación e instalación de luces, alarmas, sonido, espejos, limpia parabrisas y elevadores de vidrios de carro",
+    "description": "Diagnóstico eléctrico, instalación de alarmas, radios, luces LED y reparación de cableado para motos y carros.",
+    "areaServed": [
+      { "@type": "Place", "name": "Suba Gaitana" },
+      { "@type": "Place", "name": "Santa Cecilia" },
+      { "@type": "Place", "name": "Lisboa" },
+      { "@type": "Place", "name": "Verona" },
+      { "@type": "Place", "name": "Fontanar del Río" },
+      { "@type": "Place", "name": "Suba norte" },
+      { "@type": "Place", "name": "Tibabuyes" },
+      { "@type": "Place", "name": "Villa María" }
+    ],
+    "provider": {
+  "@id": "https://www.rodarbogota.com.co/#rodarbogota"
+},
+    "offers": [
+      { "@type": "Offer", "itemOffered": "Electromecánica multimarcas para motos y carros con repuestos originales en Suba Gaitana" },
+      { "@type": "Offer", "itemOffered": "Diagnóstico eléctrico y reparación de cableado para motos sin cita en Suba norte" },
+      { "@type": "Offer", "itemOffered": "Instalación de alarmas con GPS, sensores y bloqueo central en Tibabuyes y Santa Cecilia" },
+      { "@type": "Offer", "itemOffered": "Reparación de elevavidrios y revisión de encendido para carros en Villa María y Fontanar del Río" },
+      { "@type": "Offer", "itemOffered": "Instalación de radios Android, luces LED y sonido automotriz en Lisboa y Verona" }
+          ]
+  }
+  ],
   "hasMap": "https://goo.gl/maps/7ZzYzYzYzYzYzYzY8",
   "aggregateRating": {
     "@type": "AggregateRating",
